@@ -6,6 +6,7 @@ const files=new Map(manifest.assets.map(a=>[a.id,a.path]));
 export const asset=(id:string)=>{const path=files.get(id);if(!path)throw new Error('등록되지 않은 그래픽: '+id);return import.meta.env.BASE_URL+'art/'+(import.meta.env.PROD?path.replace(/\.png$/,'.webp'):path);};
 export const vector=(path:string)=>import.meta.env.BASE_URL+'art/'+path;
 export const icon=(name:string)=>vector('ui/icons/'+name+'.svg');
+export const paintedIcons:Record<string,string>={inventory:'UI_INVENTORY_V02',notebook:'UI_NOTEBOOK_V02',document:'UI_NOTEBOOK_V02',map:'UI_MAP_V02',hint:'UI_HINT_V02',speaker:'UI_HINT_V02',save:'UI_SAVE_V02',settings:'UI_SETTINGS_V02',inspect:'UI_INSPECT_V02',eye:'UI_INSPECT_V02',menu:'UI_MENU_V02'};
 export const scenes=contract.scenes;
 export const layers=contract.layers;
 export function sceneAsset(s:GameState):string {

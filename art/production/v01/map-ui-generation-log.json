@@ -1,0 +1,115 @@
+{
+  "version": "map-menu-v02",
+  "toolMode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "UI_INVENTORY_V02",
+      "name": "배낭",
+      "path": "ui/painted/inventory_v02.png",
+      "subject": "One compact olive canvas field backpack, broad recognizable silhouette, warm ivory flap, two leather straps, burnished brass buckles, small side pocket, upright front three-quarter view.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One compact olive canvas field backpack, broad recognizable silhouette, warm ivory flap, two leather straps, burnished brass buckles, small side pocket, upright front three-quarter view. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-2e751028-6314-4957-a3b2-50221c6469a8.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "배낭",
+      "transparent": true
+    },
+    {
+      "id": "UI_NOTEBOOK_V02",
+      "name": "수첩",
+      "path": "ui/painted/notebook_v02.png",
+      "subject": "One thick forest-green leather field notebook, partly opened cream pages, brass corner protectors, small pencil tucked into its binding, iconic front three-quarter view with visible journal cover.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One thick forest-green leather field notebook, partly opened cream pages, brass corner protectors, small pencil tucked into its binding, iconic front three-quarter view with visible journal cover. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-105ac2fa-c9fc-4869-beb5-aacf439c99d8.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "수첩",
+      "transparent": true
+    },
+    {
+      "id": "UI_MAP_V02",
+      "name": "지도",
+      "path": "ui/painted/map_v02.png",
+      "subject": "One folded cream survey map with a simple muted green miniature island painted on it, a small brass compass resting on the lower corner, front three-quarter view, broad folded-paper silhouette.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One folded cream survey map with a simple muted green miniature island painted on it, a small brass compass resting on the lower corner, front three-quarter view, broad folded-paper silhouette. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-a62ecee3-3581-49c8-9577-40e5e4b24c60.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "지도",
+      "transparent": true
+    },
+    {
+      "id": "UI_HINT_V02",
+      "name": "방송 힌트",
+      "path": "ui/painted/hint_v02.png",
+      "subject": "One compact vintage olive metal field loudspeaker, warm ivory grille, short carrying handle, burnished brass fittings, broad side horn and clearly visible front grille, front three-quarter view. This is a speaker giving clues.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One compact vintage olive metal field loudspeaker, warm ivory grille, short carrying handle, burnished brass fittings, broad side horn and clearly visible front grille, front three-quarter view. This is a speaker giving clues. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-ac13c73c-e2e5-4cdc-81e8-36218ef68a73.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "방송 힌트",
+      "transparent": true
+    },
+    {
+      "id": "UI_SAVE_V02",
+      "name": "기록 보관",
+      "path": "ui/painted/save_v02.png",
+      "subject": "One compact olive steel archive box with an open ivory document folder peeking out, sturdy brass latch and small brass badge without letters, broad front three-quarter view. It represents preserving a game record, not a floppy disk.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One compact olive steel archive box with an open ivory document folder peeking out, sturdy brass latch and small brass badge without letters, broad front three-quarter view. It represents preserving a game record, not a floppy disk. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-3b7d2bcf-0ce7-48f1-bf88-d188174375cf.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "기록 보관",
+      "transparent": true
+    },
+    {
+      "id": "UI_SETTINGS_V02",
+      "name": "설정",
+      "path": "ui/painted/settings_v02.png",
+      "subject": "One thick burnished brass cogwheel with dark olive recessed hub and eight large visible teeth, a small steel adjustment lever crossing the hub, frontal slight three-quarter view, bold tool silhouette.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One thick burnished brass cogwheel with dark olive recessed hub and eight large visible teeth, a small steel adjustment lever crossing the hub, frontal slight three-quarter view, bold tool silhouette. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-59988911-bc28-4784-803d-a090fa539a37.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "설정",
+      "transparent": true
+    },
+    {
+      "id": "UI_INSPECT_V02",
+      "name": "조사",
+      "path": "ui/painted/inspect_v02.png",
+      "subject": "One antique brass magnifying glass with thick rim, pale aqua transparent lens, dark forest-green leather wrapped handle pointing diagonally down-right, bold simple recognizable silhouette.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One antique brass magnifying glass with thick rim, pale aqua transparent lens, dark forest-green leather wrapped handle pointing diagonally down-right, bold simple recognizable silhouette. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-0aa37a65-caf3-4e91-acae-3fd675ea4ede.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "조사",
+      "transparent": true
+    },
+    {
+      "id": "UI_MENU_V02",
+      "name": "메뉴",
+      "path": "ui/painted/menu_v02.png",
+      "subject": "One compact olive metal navigation console plate, three raised cream horizontal lever bars, burnished brass frame with rounded corners and four screws, clear bold silhouette, front view. No text, no symbols.",
+      "prompt": "Use case: stylized-concept. Asset type: original painted game menu icon, ONE icon per image. One compact olive metal navigation console plate, three raised cream horizontal lever bars, burnished brass frame with rounded corners and four screws, clear bold silhouette, front view. No text, no symbols. Modern premium semi-realistic 2D adventure game prop illustration. Hand-painted material shading and a little surface wear, dry and reasonably clean, soft bright daylight from upper left. Muted sage/forest green, ivory, antique brass palette. Strong shape readable at 48 pixels. Center the object, keep it large filling approximately 85% of the square with even transparent margin; no crop. Genuine transparent alpha background. No text, no numbers, no watermark, no emoji style, no flat line art, no cartoon face, no separate backdrop or cast shadow outside object. Avoid tiny intricate details and excessive grunge.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-d703b973-82bf-4bd9-84c9-9bee1e17dd0c.png",
+      "toolMode": "built-in image_gen",
+      "category": "ui",
+      "label": "메뉴",
+      "transparent": true
+    },
+    {
+      "id": "CH01_WAREHOUSE_MAP_V02",
+      "name": "창고 조감 지도",
+      "path": "map/ch01_warehouse_map_v02.png",
+      "opaque": true,
+      "subject": "An original illustrated cutaway map of a single coastal warehouse facility, roof removed, view looking downward from an isometric elevated angle. Portrait composition. Four connected rooms in a plausible L-to-U interior circulation: southwest/bottom-left confinement storeroom centered near 25% x,70% y with chair, timber crates and shelving; northwest/upper-left management office centered near 27% x,31% y with desk, files and lamp; northeast/upper-right equipment room centered near 72% x,34% y with dry pipes, pump and shallow drained sump; southeast/bottom-right loading bay centered near 74% x,73% y with pallets and exit gate to a sandy dock apron. Doorways connect storeroom to office, office to equipment, equipment to loading bay. Clearly show painted walls, floor materials and readable miniature props. The facility fills most of the image, surrounded by a little sand and low plants. Include no person, no text, no numbers, no room labels, no arrows, no UI, no inset frames. Warm dry aged coastal industrial surfaces, bright gentle daylight. This must look like hand-painted modern 2D game environment art, not a spreadsheet, schematic grid, vector floorplan or diagram.",
+      "prompt": "Use case: stylized-concept. Asset type: production mobile game map resource. An original illustrated cutaway map of a single coastal warehouse facility, roof removed, view looking downward from an isometric elevated angle. Portrait composition. Four connected rooms in a plausible L-to-U interior circulation: southwest/bottom-left confinement storeroom centered near 25% x,70% y with chair, timber crates and shelving; northwest/upper-left management office centered near 27% x,31% y with desk, files and lamp; northeast/upper-right equipment room centered near 72% x,34% y with dry pipes, pump and shallow drained sump; southeast/bottom-right loading bay centered near 74% x,73% y with pallets and exit gate to a sandy dock apron. Doorways connect storeroom to office, office to equipment, equipment to loading bay. Clearly show painted walls, floor materials and readable miniature props. The facility fills most of the image, surrounded by a little sand and low plants. Include no person, no text, no numbers, no room labels, no arrows, no UI, no inset frames. Warm dry aged coastal industrial surfaces, bright gentle daylight. This must look like hand-painted modern 2D game environment art, not a spreadsheet, schematic grid, vector floorplan or diagram.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-202daeed-d3ca-4956-b418-c85051fd6753.png",
+      "toolMode": "built-in image_gen",
+      "category": "map",
+      "label": "창고 조감 지도",
+      "transparent": false
+    }
+  ]
+}

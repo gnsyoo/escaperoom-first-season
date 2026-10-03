@@ -5,6 +5,7 @@ import type {SeasonReview} from './SeasonApp.tsx';
 import {chapterOf,newSeason,season} from './domain/season.ts';
 import type {SeasonState} from './domain/season.ts';
 import './ui-preview.css';
+import './graphical-ui.css';
 // Authored presentation states only; this page never reads or writes player saves.
 function presentation(index:number,count:number):SeasonState{
  let s=newSeason();s={...s,chapter:index,furthest:index,visited:Array.from({length:index+1},(_,i)=>i),queue:[]};

@@ -6,16 +6,20 @@
 
 ## 결과물
 
+- [웹에서 게임 실행](https://gnsyoo.github.io/escaperoom-first-season/)
+- [공개 완성 UI 갤러리](https://gnsyoo.github.io/escaperoom-first-season/art/ui-screens/season-v02/gallery.html)
+- [GitHub 소스 저장소](https://github.com/gnsyoo/escaperoom-first-season)
 - [2장부터 10장 상세 문서](docs/chapters/README.md)
 - [시즌 스토리와 구현 가이드](docs/08_SEASON_CH02_CH10.md)
 - [스토리 UI UX 개선 및 검증 범위](docs/09_STORY_UX_QUALITY.md)
+- [그래픽 지도·소품 메뉴·배경 표시 기준](docs/10_GRAPHICAL_MAP_MENU.md)
 - [현재 UI 완성 이미지 갤러리](art/ui-screens/season-v02/gallery.html)
 - [원본 그래픽 갤러리](art/production/v01/gallery.html)
 - [신규 9장 장치 이미지](art/production/v01/SEASON_ART_README.md)
 - [이미지 프롬프트와 제작 출처](art/production/v01/season-generation-log.json)
 - [1장 이전 화면 26종](art/ui-screens/v02/gallery.html)
 
-원본 그래픽은 PNG 122개와 SVG 63개, 별도 게임 프레임 SVG 2개다. 웹 빌드는 WebP로 압축하며 원본은 보존한다. UI 갤러리와 개발 문서에는 정답과 엔딩의 스포일러가 있다. 기본 게임은 본 엔딩과 확인한 기록만 보여 준다.
+원본 그래픽은 PNG 131개와 SVG 63개, 별도 게임 프레임 SVG 2개다. 새 창고 조감도와 투명 메뉴 소품 아이콘 8종을 포함한다. 웹 빌드는 WebP로 압축하며 원본은 보존한다. UI 갤러리와 개발 문서에는 정답과 엔딩의 스포일러가 있다. 기본 게임은 본 엔딩과 확인한 기록만 보여 준다.
 
 ## 실행
 
@@ -43,6 +47,9 @@ node tests/e2e/playthrough.mjs
 node tests/e2e/layout-and-save.mjs
 node tests/e2e/season-playthrough.mjs
 node tests/e2e/season-layout.mjs
+node tests/e2e/season-feedback-and-return.mjs
+node tests/e2e/legacy-feedback.mjs
+node tests/e2e/graphical-map-and-scene.mjs
 ~~~
 
 로컬 Chrome/Edge 또는 Playwright Chromium을 사용한다. PYORYUDO_BROWSER로 실행 파일 경로를 지정할 수 있다. 검사 파일을 실행할 때 개발 서버가 먼저 실행돼 있어야 한다. 원본 리소스와 최신 UI의 상태, 검증의 한계는 품질 문서에 기록한다.

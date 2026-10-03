@@ -6,6 +6,7 @@ import type { GameState, SceneId } from './domain/game.ts';
 import './styles.css';
 import './game-skin.css';
 import './ui-preview.css';
+import './graphical-ui.css';
 
 // Review states replay the real puzzle rules. This entry never writes player saves.
 function drain(s:GameState){while(s.dialogueQueue.length)s=advanceDialogue(s);return s;}

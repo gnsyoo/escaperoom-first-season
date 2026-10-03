@@ -27,7 +27,7 @@
       "height": 2340,
       "fullFile": "02_ch01-home_full.png",
       "fullWidth": 1080,
-      "fullHeight": 2340
+      "fullHeight": 5676
     },
     {
       "id": "ch01-explore",
@@ -601,7 +601,7 @@
       "height": 2340,
       "fullFile": "66_map_full.png",
       "fullWidth": 1080,
-      "fullHeight": 3237
+      "fullHeight": 2367
     },
     {
       "id": "settings",

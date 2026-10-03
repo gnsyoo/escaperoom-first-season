@@ -4,7 +4,7 @@ import sharp from 'sharp';
 const root=resolve('art/production/v01'),dest=resolve('dist/art');
 if(!existsSync('dist/index.html'))throw new Error('Build the web app first.');
 mkdirSync(dest,{recursive:true});
-for(const folder of ['ui','overlays','fonts'])cpSync(resolve(root,folder),resolve(dest,folder),{recursive:true});
+for(const folder of ['ui','overlays','fonts'])cpSync(resolve(root,folder),resolve(dest,folder),{recursive:true,filter:src=>!src.endsWith('.png')});
 const manifest=JSON.parse(readFileSync(resolve(root,'manifest.json'),'utf8'));
 let sourceBytes=0,webBytes=0;
 const rasters=manifest.assets.filter(a=>a.path.endsWith('.png'));

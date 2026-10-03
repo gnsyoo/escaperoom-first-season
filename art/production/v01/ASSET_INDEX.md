@@ -1,6 +1,6 @@
 # 표류도 그래픽 리소스 목록
 
-PNG 122장, SVG 63개. 신규 9장 장치 확대 이미지는 내장 image_gen으로 제작했다. 한글과 기능 라벨은 실제 Pretendard UI 레이어에 표시한다.
+PNG 131장, SVG 63개. 모든 한글 기능 라벨은 실제 Pretendard UI 레이어다.
 
 | ID | 용도 | 파일 | 원본 크기 |
 | --- | --- | --- | --- |
@@ -189,3 +189,12 @@ PNG 122장, SVG 63개. 신규 9장 장치 확대 이미지는 내장 image_gen�
 | CH08_MONITOR_CLOSE | 08장 장치 확대 | [파일](puzzles/ch08/ch08_monitor_close_v01.png) | 1254×1254 |
 | CH09_GENERATOR_CLOSE | 09장 장치 확대 | [파일](puzzles/ch09/ch09_generator_close_v01.png) | 1254×1254 |
 | CH10_BOAT_CLOSE | 10장 장치 확대 | [파일](puzzles/ch10/ch10_boat_close_v01.png) | 1254×1254 |
+| UI_INVENTORY_V02 | 배낭 | [파일](ui/painted/inventory_v02.png) | 1254×1254 |
+| UI_NOTEBOOK_V02 | 수첩 | [파일](ui/painted/notebook_v02.png) | 1254×1254 |
+| UI_MAP_V02 | 지도 | [파일](ui/painted/map_v02.png) | 1254×1254 |
+| UI_HINT_V02 | 방송 힌트 | [파일](ui/painted/hint_v02.png) | 1254×1254 |
+| UI_SAVE_V02 | 기록 보관 | [파일](ui/painted/save_v02.png) | 1254×1254 |
+| UI_SETTINGS_V02 | 설정 | [파일](ui/painted/settings_v02.png) | 1254×1254 |
+| UI_INSPECT_V02 | 조사 | [파일](ui/painted/inspect_v02.png) | 1254×1254 |
+| UI_MENU_V02 | 메뉴 | [파일](ui/painted/menu_v02.png) | 1254×1254 |
+| CH01_WAREHOUSE_MAP_V02 | 창고 조감 지도 | [파일](map/ch01_warehouse_map_v02.png) | 1024×1536 |

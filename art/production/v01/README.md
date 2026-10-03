@@ -1,6 +1,6 @@
 # 표류도 그래픽 리소스 팩 v01
 
-> 현재 시즌 전체는 PNG 122개와 이 팩의 SVG 63개, 별도 게임 프레임 SVG 2개를 사용한다. 1~10장 실행과 WebP 압축을 구현했다. 최신 [품질 기록](../../../docs/09_STORY_UX_QUALITY.md), [신규 장치 이미지](SEASON_ART_README.md), [완성 UI 90장](../../ui-screens/season-v02/README.md)을 따른다. 아래의 초기 제작 수량 및 후속 작업 설명은 제작 이력이다.
+> 현재 시즌 전체는 PNG 131개와 이 팩의 SVG 63개, 별도 게임 프레임 SVG 2개를 사용한다. 1~10장 실행과 WebP 압축을 구현했다. 최신 [품질 기록](../../../docs/09_STORY_UX_QUALITY.md), [지도·메뉴 그래픽](MAP_MENU_ART_README.md), [신규 장치 이미지](SEASON_ART_README.md), [완성 UI 90장](../../ui-screens/season-v02/README.md)을 따른다. 아래의 초기 제작 수량 및 후속 작업 설명은 제작 이력이다.
 
 사용자가 승인한 [창고 컨셉](../../concepts/ch01_warehouse_mood_v01.png)을 기준으로 제작한다. 적당한 사용 흔적, 마른 표면, 부드러운 낮빛, 회녹색과 청회색 설비, 읽히는 그림자가 핵심이다. 검은방 3은 미스터리 분위기만 참고하며 모든 공간과 인물은 독립적으로 제작했다.
 

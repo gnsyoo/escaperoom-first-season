@@ -1,5 +1,8 @@
-import {readFileSync,writeFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 const data=JSON.parse(readFileSync('data/season.chapters.json','utf8'));
+const artManifest=JSON.parse(readFileSync('art/production/v01/manifest.json','utf8'));
+const rasterCount=artManifest.assets.filter(a=>a.path.endsWith('.png')).length;
+const webStats=existsSync('dist/build-art-stats.json')?JSON.parse(readFileSync('dist/build-art-stats.json','utf8')):{sourceBytes:275049169,webBytes:39075900,reductionPercent:86};
 const stages=data.chapters.flatMap(c=>c.stages),linked=stages.filter(p=>p.storyLinked),inputs=stages.filter(p=>['controls','code','sequence','choice','combine'].includes(p.kind)),linkedInputs=inputs.filter(p=>p.storyLinked);
 writeFileSync('docs/09_STORY_UX_QUALITY.md',`# 시즌 스토리와 UI UX 개선 기록
 
@@ -23,21 +26,25 @@ writeFileSync('docs/09_STORY_UX_QUALITY.md',`# 시즌 스토리와 UI UX 개선 
 
 성공 및 실패 메시지는 탐색 화면의 상단 가까이 표시한다. 퍼즐 오류는 스크롤 영역 밖의 고정 안내 줄에 나오므로 아래로 읽은 뒤 오답을 입력해도 보인다. 조작 확인은 퍼즐 하단에서 따라온다. 실패 시 도구는 소모되지 않고 중복 성공에는 보상이 추가되지 않는다. 접근성 이름에 장식 문자가 섞이던 문제를 도형으로 바꿨다.
 
-작은 화면의 하단 메뉴가 두 줄로 갈라지는 문제, 헤더의 낮은 대비, 내보내기 목록이 화면 이미지에 섞이는 문제를 수정했다. 잠긴 문 내부는 먼저 열기 전까지 들어갈 수 없으며 원본 회수 재방문에서는 완료 카드를 닫아 선택 조사를 할 수 있다.
+작은 화면의 하단 메뉴가 두 줄로 갈라지는 문제, 헤더의 낮은 대비, 내보내기 목록이 화면 이미지에 섞이는 문제를 수정했다. 잠긴 문 내부는 먼저 열기 전까지 들어갈 수 없으며 원본 회수 재방문에서는 완료 카드를 닫아 선택 조사를 할 수 있다. 첫 홈에도 10개의 챕터를 표시한다. 공개 화면에서 발견한 초기 체험판 안내를 시즌 안내로 수정했고 1장 성공 메시지의 가로 위치와 퍼즐 오류 안내의 고정 위치도 보완했다.
+
+후속 지도·메뉴 요청에 따라 창고 조감도와 투명 소품 아이콘 8개를 새로 제작했다. 창고와 섬 지도는 그림 위의 표식으로 이동하며 표 형태의 방 배치와 이동 목록을 제거했다. 탐색 장면은 원본 비율을 유지한 채 화면 채우기를 기본으로 하고 전체 장면 보기 전환으로 가장자리 조사 대상을 확인한다. 좌표와 메뉴 연결은 10_GRAPHICAL_MAP_MENU.md를 따른다.
 
 ## 실행한 검증
 
-10개 단위 검증에서 전체 진행, 잘못된 입력과 소모, 중복 지급, 저장 재생, 세 엔딩, 원본 재회수와 위험 후퇴를 다룬다. 실제 브라우저에서 1장 25단계와 신규 180단계를 입력·조합·사용으로 완주했다. 시즌은 320×568, 360×780, 390×844, 1280×900의 36개 화면 조합을 검사했다. 1장 화면 및 수동 저장·덮어쓰기·사본 복구도 기존 검사로 확인한다. 정확한 최신 실행 결과는 test-results에 생성되며 Git에는 검사 스크립트와 이 설명을 저장한다.
+10개 단위 검증에서 전체 진행, 잘못된 입력과 소모, 중복 지급, 저장 재생, 세 엔딩, 원본 재회수와 위험 후퇴를 다룬다. 실제 브라우저에서 1장 25단계와 신규 180단계를 입력·조합·사용으로 완주했다. 시즌은 320×568, 360×780, 390×844, 1280×900의 36개 화면 조합을 검사했다. 1장 24개 화면 조합과 수동 저장·덮어쓰기·사본 복구도 확인했다. 320×568·360×780·1280×900에서 1장 오류 안내의 스크롤 후 가시성, 성공 메시지의 화면 내 위치와 첫 홈의 10개 챕터를 추가로 확인했다. 정확한 최신 실행 결과는 test-results에 생성되며 Git에는 검사 스크립트와 이 설명을 저장한다.
+
+지도와 배경 변경 후 205단계와 기존 화면·저장 검사를 다시 통과했다. 4개 크기의 1장·후속 시즌 8개 조합에서 화면 채우기, 전체 장면 전환, 새 그림과 아이콘 표시, 지도 표식 이동을 추가로 확인했다. 실제 공개 주소에서도 리소스·글꼴·새 게임 시작과 저장 재접속을 확인한다.
 
 시각 검토에서 발견한 문제를 고친 후 해당 범위를 다시 확인했다. 이 결과는 사람에 의한 장시간 재미 평가, 실제 iOS·Android 기기, 접근성 보조 도구 전체 및 성우·음악의 검증을 대신하지 않는다. 현재 음악과 성우 음성은 없고 조작 효과음만 있다. 모바일 앱 패키징과 스토어 출시는 별도 단계다.
 
 ## 웹 배포
 
-원본 PNG는 저장소의 art/production/v01에 보존한다. 실행용 WebP 122개는 약 34MB로 줄었으며 원본 약 245MB 대비 86% 감소했다. 배포 스크립트가 매 빌드 때 생성하므로 압축본을 따로 수정하지 않는다. GitHub Pages는 .github/workflows/pages.yml에서 테스트와 빌드를 거쳐 배포한다. GitHub의 공식 사용자 워크플로 방식에 따른다: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+원본 PNG는 저장소의 art/production/v01에 보존한다. 실행용 WebP ${rasterCount}개는 약 ${Math.round(webStats.webBytes/1024/1024)}MB로 줄었으며 원본 약 ${Math.round(webStats.sourceBytes/1024/1024)}MB 대비 ${webStats.reductionPercent}% 감소했다. 배포 스크립트가 매 빌드 때 생성하므로 압축본을 따로 수정하지 않는다. GitHub Pages는 .github/workflows/pages.yml에서 테스트와 빌드를 거쳐 배포한다. GitHub의 공식 사용자 워크플로 방식에 따른다: https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 `);
 let spec=readFileSync('docs/08_SEASON_CH02_CH10.md','utf8').replace('사용자 요청에 따라 추가 테스트 및 시각 QA는 실행하지 않는다. 문서의 규칙은 구현 요구이며 검증 완료 선언이 아니다.','후속 사용자 요청에 따라 단위 및 브라우저 검증을 실행하고 시각·조작 문제를 수정했다. 최신 범위는 09_STORY_UX_QUALITY.md를 따른다.');writeFileSync('docs/08_SEASON_CH02_CH10.md',spec);
-for(const c of data.chapters){const file='docs/chapters/'+c.id+'_STORY_PUZZLES_UI.md';let s=readFileSync(file,'utf8');s+='\n## 이야기 연결과 제작 기준\n\n'+c.stages.filter(p=>p.storyLinked).map(p=>'- '+p.number+' '+p.title+': '+p.storyPurpose).join('\n')+'\n\n이 장은 기존 배경과 인물, 신규 장치 확대 이미지 및 실제 조작 UI를 사용한다. 메뉴 읽기 중 위험 타이머가 멈춘다. 대화 기록, 선택 원본, 책임 선택은 이후 장과 저장에 연결된다.\n';writeFileSync(file,s);}
-let ui=readFileSync('docs/07_UI_IMPLEMENTATION.md','utf8');ui='> 최신 시즌 전체 구현과 그래픽 UI 기준은 [시즌 확장](08_SEASON_CH02_CH10.md)과 [품질 개선](09_STORY_UX_QUALITY.md)을 따른다. 아래의 1장 v02 기록은 이전 제작 이력이다.\n\n'+ui;writeFileSync('docs/07_UI_IMPLEMENTATION.md',ui);
+for(const c of data.chapters){const file='docs/chapters/'+c.id+'_STORY_PUZZLES_UI.md';let s=readFileSync(file,'utf8').replace(/\n## 이야기 연결과 제작 기준[\s\S]*$/,'');s+='\n## 이야기 연결과 제작 기준\n\n'+c.stages.filter(p=>p.storyLinked).map(p=>'- '+p.number+' '+p.title+': '+p.storyPurpose).join('\n')+'\n\n이 장은 기존 배경과 인물, 신규 장치 확대 이미지 및 실제 조작 UI를 사용한다. 메뉴 읽기 중 위험 타이머가 멈춘다. 대화 기록, 선택 원본, 책임 선택은 이후 장과 저장에 연결된다.\n';writeFileSync(file,s);}
+let ui=readFileSync('docs/07_UI_IMPLEMENTATION.md','utf8');ui=ui.replace(/^(> 최신 시즌[^\n]+\n\n)+/,'');ui='> 최신 시즌 전체 구현과 그래픽 UI 기준은 [시즌 확장](08_SEASON_CH02_CH10.md)과 [품질 개선](09_STORY_UX_QUALITY.md)을 따른다. 아래의 1장 v02 기록은 이전 제작 이력이다.\n\n'+ui;writeFileSync('docs/07_UI_IMPLEMENTATION.md',ui);
 const readme=`# 표류도 기억의 해안
 
 웹에서 플레이하고 이후 모바일 앱으로 확장할 수 있는 현대 2D 미스터리 방탈출 게임이다. 검은방 3의 전반적인 긴장감만 참고하며 배경·인물·UI는 이 게임용 창작물이다. 적당히 낡고 건조하며 덜 어두운 해안 시설, 로컬 프리텐다드가 기준이다.
@@ -46,16 +53,20 @@ const readme=`# 표류도 기억의 해안
 
 ## 결과물
 
+- [웹에서 게임 실행](https://gnsyoo.github.io/escaperoom-first-season/)
+- [공개 완성 UI 갤러리](https://gnsyoo.github.io/escaperoom-first-season/art/ui-screens/season-v02/gallery.html)
+- [GitHub 소스 저장소](https://github.com/gnsyoo/escaperoom-first-season)
 - [2장부터 10장 상세 문서](docs/chapters/README.md)
 - [시즌 스토리와 구현 가이드](docs/08_SEASON_CH02_CH10.md)
 - [스토리 UI UX 개선 및 검증 범위](docs/09_STORY_UX_QUALITY.md)
+- [그래픽 지도·소품 메뉴·배경 표시 기준](docs/10_GRAPHICAL_MAP_MENU.md)
 - [현재 UI 완성 이미지 갤러리](art/ui-screens/season-v02/gallery.html)
 - [원본 그래픽 갤러리](art/production/v01/gallery.html)
 - [신규 9장 장치 이미지](art/production/v01/SEASON_ART_README.md)
 - [이미지 프롬프트와 제작 출처](art/production/v01/season-generation-log.json)
 - [1장 이전 화면 26종](art/ui-screens/v02/gallery.html)
 
-원본 그래픽은 PNG 122개와 SVG 63개, 별도 게임 프레임 SVG 2개다. 웹 빌드는 WebP로 압축하며 원본은 보존한다. UI 갤러리와 개발 문서에는 정답과 엔딩의 스포일러가 있다. 기본 게임은 본 엔딩과 확인한 기록만 보여 준다.
+원본 그래픽은 PNG ${rasterCount}개와 SVG 63개, 별도 게임 프레임 SVG 2개다. 새 창고 조감도와 투명 메뉴 소품 아이콘 8종을 포함한다. 웹 빌드는 WebP로 압축하며 원본은 보존한다. UI 갤러리와 개발 문서에는 정답과 엔딩의 스포일러가 있다. 기본 게임은 본 엔딩과 확인한 기록만 보여 준다.
 
 ## 실행
 
@@ -83,6 +94,9 @@ node tests/e2e/playthrough.mjs
 node tests/e2e/layout-and-save.mjs
 node tests/e2e/season-playthrough.mjs
 node tests/e2e/season-layout.mjs
+node tests/e2e/season-feedback-and-return.mjs
+node tests/e2e/legacy-feedback.mjs
+node tests/e2e/graphical-map-and-scene.mjs
 ~~~
 
 로컬 Chrome/Edge 또는 Playwright Chromium을 사용한다. PYORYUDO_BROWSER로 실행 파일 경로를 지정할 수 있다. 검사 파일을 실행할 때 개발 서버가 먼저 실행돼 있어야 한다. 원본 리소스와 최신 UI의 상태, 검증의 한계는 품질 문서에 기록한다.
