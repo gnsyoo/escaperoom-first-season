@@ -1,7 +1,9 @@
 import content from '../../data/ch01.puzzles.json' with { type: 'json' };
+import introContent from '../../data/prologue.json' with { type: 'json' };
+export const prologue = introContent;
 
 export type SceneId = 'R01' | 'R02' | 'R03' | 'R04';
-export type Dialogue = { id:string; speaker:string; text:string; broadcast?:boolean };
+export type Dialogue = { id:string; speaker:string; text:string; broadcast?:boolean; introScene?:string };
 export type GameState = {
   schemaVersion:1; contentVersion:string; chapterId:'CH01';
   sceneId:SceneId; viewId:string; completedPuzzleIds:string[];
@@ -29,13 +31,18 @@ const dialogues:Record<string,Dialogue[]> = {
   P23:[{id:'D01_008',speaker:'도윤',text:'맨눈으로는 안 보였던 숫자다. 순서는 명판에 있다.'}],
   P25:[{id:'D01_009',speaker:'도윤',text:'파도 소리… 건물 바깥은 섬이었어.'},{id:'D01_010',speaker:'스피커',text:'네가 떠난 곳을 기억하나?',broadcast:true}]
 };
-export const allDialogues = Object.values(dialogues).flat();
+export const allDialogues:Dialogue[] = [...prologue.dialogues,...Object.values(dialogues).flat()];
 export function newGame():GameState {
-  return {schemaVersion:1,contentVersion:content.contentVersion,chapterId:'CH01',sceneId:'R01',viewId:'A',completedPuzzleIds:[],inventory:{},evidenceIds:[],flags:{},readClueIds:[],seenDialogueIds:[],dialogueQueue:[...dialogues.start],visitedViews:['R01_A'],playTimeMs:0};
+  return {schemaVersion:1,contentVersion:content.contentVersion,chapterId:'CH01',sceneId:'R01',viewId:'A',completedPuzzleIds:[],inventory:{},evidenceIds:[],flags:{},readClueIds:[],seenDialogueIds:[],dialogueQueue:[...prologue.dialogues,...dialogues.start],visitedViews:['R01_A'],playTimeMs:0};
 }
 export function advanceDialogue(s:GameState):GameState {
   const first=s.dialogueQueue[0];
   return first?{...s,seenDialogueIds:[...new Set([...s.seenDialogueIds,first.id])],dialogueQueue:s.dialogueQueue.slice(1)}:s;
+}
+export function skipPrologue(s:GameState):GameState {
+  let next=s;
+  while(next.dialogueQueue[0]?.introScene)next=advanceDialogue(next);
+  return next;
 }
 export function canVisit(s:GameState,scene:SceneId,view:string):boolean {
   if(!views[scene]?.includes(view))return false;
@@ -94,7 +101,7 @@ export function attempt(s:GameState,puzzleId:string,answer:unknown):Result {
   const viewId=transition?transition.viewId:s.viewId;
   const queue=(dialogues[p.id]||[]).filter(d=>!s.seenDialogueIds.includes(d.id));
   const next:GameState={...s,sceneId,viewId,inventory,completedPuzzleIds:[...s.completedPuzzleIds,p.id],evidenceIds:[...new Set([...s.evidenceIds,...p.effects.grantEvidence])],flags:Object.assign({},s.flags,p.effects.setFlags),dialogueQueue:[...s.dialogueQueue,...queue],visitedViews:[...new Set([...s.visitedViews,sceneId+'_'+viewId])],readClueIds:[...new Set([...s.readClueIds,...(p.id==='P04'?['note_a']:[])])]};
-  return {state:next,status:'success',message:p.repeatText,rewards:p.effects.grantItems};
+  return {state:next,status:'success',message:p.successText,rewards:p.effects.grantItems};
 }
 export function validateState(value:unknown):GameState {
   if(!value||typeof value!=='object')throw new Error('저장 형식이 올바르지 않습니다.');
@@ -106,7 +113,7 @@ export function validateState(value:unknown):GameState {
   if(!strings(s.evidenceIds)||s.evidenceIds.some(id=>!['circuit_plan','drain_procedure','exit_cipher'].includes(id)))throw new Error('증거 기록이 손상됐습니다.');
   if(!strings(s.readClueIds)||s.readClueIds.some(id=>!['note_a','calendar','duty_roster','shelf_numbers'].includes(id)))throw new Error('단서 기록이 손상됐습니다.');
   const knownDialogue=new Set(allDialogues.map(d=>d.id));
-  if(!strings(s.seenDialogueIds)||s.seenDialogueIds.some(id=>!knownDialogue.has(id))||!Array.isArray(s.dialogueQueue)||s.dialogueQueue.some(d=>!allDialogues.some(k=>k.id===d.id&&k.text===d.text&&k.speaker===d.speaker)))throw new Error('대화 기록이 손상됐습니다.');
+  if(!strings(s.seenDialogueIds)||s.seenDialogueIds.some(id=>!knownDialogue.has(id))||!Array.isArray(s.dialogueQueue)||s.dialogueQueue.some(d=>!allDialogues.some(k=>k.id===d.id&&k.text===d.text&&k.speaker===d.speaker&&k.introScene===d.introScene)))throw new Error('대화 기록이 손상됐습니다.');
   if(new Set(s.dialogueQueue.map(d=>d.id)).size!==s.dialogueQueue.length||s.dialogueQueue.some(d=>s.seenDialogueIds.includes(d.id)))throw new Error('중복 대화 기록입니다.');
   if(!s.flags||Object.values(s.flags).some(v=>typeof v!=='boolean')||!strings(s.visitedViews)||s.visitedViews.some(key=>{const [scene,view]=key.split('_');return !canVisit(s,scene as SceneId,view);}))throw new Error('공간 기록이 손상됐습니다.');
   if(!Number.isFinite(s.playTimeMs)||s.playTimeMs<0||!canVisit(s,s.sceneId,s.viewId))throw new Error('접근할 수 없는 장소의 저장입니다.');

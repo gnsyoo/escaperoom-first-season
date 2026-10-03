@@ -1,0 +1,40 @@
+{
+  "version": "prologue-v01",
+  "tool": "built-in image_gen",
+  "date": "2026-10-04",
+  "assets": [
+    {
+      "id": "PROLOGUE_OFFICE_V01",
+      "path": "story/prologue/office_message_v01.png",
+      "title": "익명의 메시지",
+      "prompt": "Use case: illustration-story. Asset type: full-screen mobile mystery adventure prologue background, portrait 1024x1536. Modern polished semi-realistic 2D painted game art, crisp detailed materials and restrained brushwork, adult Korean mystery mood, original art. Moderately aged but dry clean environment, olive green, warm ivory and muted coastal blue palette, luminous readable lighting, no mildew, no wet grimy ruins, no gore. Single uninterrupted scene, no comic panels, no HUD, no border, no lettering, no logos, no watermark. Keep main storytelling objects in central 65% of width, leave lower quarter visually quiet for runtime Korean captions. Scene: first-person viewpoint at an ordinary small South Korean office desk late afternoon. A contemporary smartphone lying screen-up beside a thin archived civil-engineering report folder with a few unmarked diagrams, capped pen and ID lanyard, office window showing warm dusk and distant city buildings. Phone screen has abstract blank chat bubbles, absolutely no readable text; captions will be added by code. Empty office, no people, no hands. Phone and report sit centrally at middle height and are clearly identifiable. Calm everyday warmth with a subtle uneasy anticipation, no dramatic horror lighting.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-bf27672e-eff2-4f42-931c-79c00f2d3aa9.png",
+      "label": "익명의 메시지",
+      "category": "story",
+      "chapter": "PROLOGUE",
+      "transparent": false
+    },
+    {
+      "id": "PROLOGUE_PORT_V01",
+      "path": "story/prologue/port_meeting_v01.png",
+      "title": "항구의 약속",
+      "prompt": "Use case: illustration-story. Asset type: full-screen mobile mystery adventure prologue background, portrait 1024x1536. Modern polished semi-realistic 2D painted game art, crisp detailed materials and restrained brushwork, adult Korean mystery mood, original art. Moderately aged but dry clean environment, olive green, warm ivory and muted coastal blue palette, luminous readable lighting, no mildew, no wet grimy ruins, no gore. Single uninterrupted scene, no comic panels, no HUD, no border, no lettering, no logos, no watermark. Keep main storytelling objects in central 65% of width, leave lower quarter visually quiet for runtime Korean captions. Scene: first-person viewpoint walking into a modest South Korean working harbor at dusk for a document handoff. Pale ivory unmarked service van parked on dry quay pavement at central left, its sliding door ajar; distant moored workboat at central right, low harbor office and utility lamps, orderly ropes and bollards. A very small indistinct human silhouette partly obscured behind the van door, no identifiable face and no weapon. No protagonist visible. Public harbor is credible and normally maintained, not deserted apocalypse, readable sunset sky and gentle amber lamps. The van and quay are central, ocean beyond. Suspense through composition without violence.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-1a9477d8-4973-49ad-88b1-40e3457152c2.png",
+      "label": "항구의 약속",
+      "category": "story",
+      "chapter": "PROLOGUE",
+      "transparent": false
+    },
+    {
+      "id": "PROLOGUE_BOAT_V01",
+      "path": "story/prologue/boat_memory_v01.png",
+      "title": "끊어진 기억",
+      "prompt": "Use case: illustration-story. Asset type: full-screen mobile mystery adventure prologue background, portrait 1024x1536. Modern polished semi-realistic 2D painted game art, crisp detailed materials and restrained brushwork, adult Korean mystery mood, original art. Moderately aged but dry clean environment, olive green, warm ivory and muted coastal blue palette, luminous readable lighting, no mildew, no wet grimy ruins, no gore. Single uninterrupted scene, no comic panels, no HUD, no border, no lettering, no logos, no watermark. Keep main storytelling objects in central 65% of width, leave lower quarter visually quiet for runtime Korean captions. Scene: a brief uncertain memory from low seated first-person viewpoint inside a small enclosed coastal utility boat cabin in predawn blue light. Empty plain bench, dull olive painted bulkhead, a round port window centrally showing gently rippling sea and a pale distant horizon, a softly illuminated metal cabin door beyond. No people, no restraints or wounds visible. Subtle tilted viewpoint and soft peripheral focus convey disorientation without unreadable blur. Cabin moderately used and dry, paint slightly chipped, clean practical materials, soft cool daylight sufficient to read every object, not pitch black. Lower quarter quiet shadows for captions.",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-bdd5f6c5-d55d-46c5-987d-8e3d1a892e31.png",
+      "label": "끊어진 기억",
+      "category": "story",
+      "chapter": "PROLOGUE",
+      "transparent": false
+    }
+  ]
+}

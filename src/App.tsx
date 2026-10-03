@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
-import { advanceDialogue, allDialogues, attempt, availablePuzzles, puzzles, canVisit, has, itemNames, moveTo, newGame, objective, owns, readClue, views } from './domain/game.ts';
+import { advanceDialogue, allDialogues, attempt, availablePuzzles, puzzles, canVisit, has, itemNames, moveTo, newGame, objective, owns, readClue, views, skipPrologue } from './domain/game.ts';
 import type { GameState, SceneId } from './domain/game.ts';
 import { asset, descriptions, evidence, hotspotNames, icon, layers, roomNames, sceneAsset, scenes, viewNames, paintedIcons } from './content/art.ts';
 import { getSlot, listSlots, saveSlot } from './platform/save.ts';
@@ -9,6 +9,7 @@ import VectorArt from './content/VectorArt.tsx';
 import GraphicalMap from './GraphicalMap.tsx';
 import useSceneFrame from './useSceneFrame.ts';
 import { season } from './domain/season.ts';
+import Prologue from './Prologue.tsx';
 
 type Context = { hotspot:string; assetId?:string; puzzleId?:string };
 type Modal = 'inventory'|'notebook'|'map'|'hint'|'menu'|'puzzle'|null;
@@ -91,11 +92,12 @@ export default function App({review,onChapterComplete,startFresh=false}:{review?
   const [imageError,setImageError]=useState(false);
   const sceneRef=useRef<HTMLElement>(null);
   const [fullScene,setFullScene]=useState(false);
-  const sceneSize=useSceneFrame(sceneRef,screen==='game',fullScene);
+  const sceneSize=useSceneFrame(sceneRef,screen==='game'&&!game.dialogueQueue[0]?.introScene,fullScene);
   const textTimer=useRef<ReturnType<typeof setInterval>|null>(null);
   const dialogue=game.dialogueQueue[0];
   const finished=has(game,'P25')&&!dialogue;
   function commit(next:GameState){stateRef.current=next;setGame(next);}
+  function nextDialogue(){if(!dialogue)return;if(visibleText!==dialogue.text){if(textTimer.current)clearInterval(textTimer.current);setVisibleText(dialogue.text);return;}commit(advanceDialogue(stateRef.current));ping();}
   function ping(success=false){if(prefs.sound)tone(prefs.volume,success);}
   function announce(text:string){setNotice(text);setRewards([]);}
   function perform(id:string,answer:unknown,keepModal=false){
@@ -110,7 +112,7 @@ export default function App({review,onChapterComplete,startFresh=false}:{review?
   }
   function close(){setModal(null);setCombineFirst(null);setCombineSecond(null);setConfirmSlot(null);}
   function openModal(next:Modal){setModal(next);ping();if(next==='inventory')setDetail(selected&&owns(game,selected)?selected:Object.keys(game.inventory)[0]||null);}
-  function openPuzzle(c:Context){setContext(c);setCode('');setRepeatCount(0);setPieces(['lower_desk','upper_a']);setValves({sea:'open',tank:'open',outlet:'closed'});setModal('puzzle');ping();}
+  function openPuzzle(c:Context){setContext(c);setCode('');setRepeatCount(0);setPieces(['lower_desk','upper_a']);setValves(has(game,'P21')?{sea:'closed',tank:'closed',outlet:'open'}:{sea:'open',tank:'open',outlet:'closed'});setModal('puzzle');ping();}
   useEffect(()=>{
     if(review||startFresh)return;
     getSlot('auto').then(slot=>{setAutoExists(!!slot);if(slot)commit(slot.state);}).catch(e=>setStartupError(e.message||'저장을 읽을 수 없습니다.'));
@@ -334,7 +336,7 @@ export default function App({review,onChapterComplete,startFresh=false}:{review?
         <div className="journey-heading"><h2>섬을 따라, 기억을 따라</h2><small>SEASON 01</small></div><div className="chapter-cards"><article className="chapter-card current"><img src={asset('CH01_R01_B')} alt="첫 번째 챕터의 선반과 잠금함"/><div><small>CHAPTER 01</small><h3>폐창고 감금실</h3><p>{has(game,'P25')?'첫 번째 기억을 찾았다':'첫 번째 문을 열어라'}</p></div><span className="chapter-status">{has(game,'P25')?'완료':'탐색 가능'}</span></article>{season.chapters.map(c=><article className="chapter-card locked" key={c.id}><img src={asset(c.backgrounds[0])} alt={c.place}/><div><small>CHAPTER {String(c.number).padStart(2,'0')}</small><h3>{c.place}</h3><p>{c.title}</p></div><span className="chapter-status">{c.number===2?(has(game,'P25')?'이동 가능':'1장 완료 후'):'앞선 장 완료 후'}</span></article>)}</div>{onChapterComplete&&has(game,'P25')&&<button className="primary full" onClick={onChapterComplete}>2장 · 양식장으로 이동</button>}
         <button className="text-button full" onClick={()=>{setMenuTab('help');openModal('menu');}}><Icon name="inspect"/>탐색이 처음이라면, 플레이 방법</button>
       </div><div className="home-footer"><Icon name="save"/><span>{autoExists?'자동 저장된 기억이 있습니다':'첫 탐색은 시간제한 없이 진행됩니다'}</span></div>
-    </section>:<>
+    </section>:dialogue?.introScene?<Prologue dialogue={dialogue} text={visibleText} brightness={prefs.brightness} notice={notice} onNext={nextDialogue} onSkip={()=>{commit(skipPrologue(stateRef.current));setNotice('');ping();}} onMenu={()=>{setMenuTab('settings');openModal('menu');}}/>:<>
       <header className="game-header"><div className="chapter-label"><span>01</span><div><small>표류도 · 기억의 해안</small><strong>폐창고 감금실</strong></div></div><div className="header-actions"><button className="icon-button light" onClick={()=>{setNotebookTab('dialogue');openModal('notebook');}} aria-label="대화 기록"><Icon name="document" light/></button><button className="icon-button light" onClick={()=>{setMenuTab('settings');openModal('menu');}} aria-label="메뉴"><Icon name="menu" light/></button></div></header>
       <div className="objective"><Icon name="inspect"/><span>{objective(game)}</span><small>{Math.round(game.completedPuzzleIds.length/25*100)}%</small></div>
       <div className="scene-bar"><div><b>{roomNames[game.sceneId]}</b><span>{viewNames[currentKey]}</span></div><div className="scene-tools"><button className="scene-fit-button" aria-label={fullScene?'화면 채우기':'전체 장면 보기'} aria-pressed={fullScene} onClick={()=>setFullScene(!fullScene)}><Icon name="inspect"/>{fullScene?'화면 채우기':'전체 장면'}</button><button className={'marker-button '+(markers?'active':'')} onClick={()=>{setMarkers(!markers);ping();}} aria-label="조사 표시" aria-pressed={markers}><Icon name="eye"/></button></div></div>
@@ -349,7 +351,7 @@ export default function App({review,onChapterComplete,startFresh=false}:{review?
         {selected&&<div className="selected-tool"><img src={asset(selected)} alt=""/><div><small>사용할 물건</small><strong>{itemNames[selected]}</strong></div><button onClick={()=>setSelected(null)} aria-label="아이템 선택 취소"><Icon name="close" light/></button></div>}
         {dialogue&&<div className={'dialogue-card '+(dialogue.broadcast?'broadcast':'')}>
           <div className="speaker-line"><Icon name={dialogue.broadcast?'speaker':'notebook'} light/><b>{dialogue.speaker}</b><span>{dialogue.broadcast?'천장 스피커':'속마음'}</span></div>
-          <button className="dialogue-next" onClick={()=>{if(visibleText!==dialogue.text){if(textTimer.current)clearInterval(textTimer.current);setVisibleText(dialogue.text);return;}commit(advanceDialogue(stateRef.current));ping();}} aria-label="다음 대사"><p>{visibleText}</p><span>계속 <Icon name="next" light/></span></button>
+          <button className="dialogue-next" onClick={nextDialogue} aria-label="다음 대사"><p>{visibleText}</p><span>계속 <Icon name="next" light/></span></button>
         </div>}
         {finished&&<div className="chapter-complete"><small>CHAPTER 01 COMPLETE</small><Icon name="unlock" light/><h2>첫 번째 문이 열렸다</h2><p>창고를 벗어났다.<br/>하지만 섬에는 아직 기억하지 못한 것이 남아 있다.</p><div className="completion-stats"><span><b>25</b>완료한 단계</span><span><b>3</b>확보한 기록</span></div>{onChapterComplete&&<button className="primary full" onClick={onChapterComplete}>2장 · 양식장으로 이동</button>}<button className={onChapterComplete?'text-button full':'primary full'} onClick={returnTitle}>타이틀로 돌아가기</button><small>{onChapterComplete?'섬의 다음 기록이 기다립니다.':'첫 번째 기억을 찾았습니다.'}</small></div>}
       </main>
@@ -392,6 +394,6 @@ export default function App({review,onChapterComplete,startFresh=false}:{review?
       {screen==='game'&&<button className="text-button full" onClick={returnTitle}>타이틀로 돌아가기</button>}
     </Sheet>}
     {confirmSlot==='new'&&<Sheet title="새롭게 시작할까요?" close={()=>setConfirmSlot(null)}><p className="body-copy">현재 자동 저장은 이전 백업에 남고 새로운 진행으로 바뀝니다.</p><div className="two-actions"><button className="secondary" onClick={()=>setConfirmSlot(null)}>취소</button><button className="primary" onClick={startNew}>확인</button></div></Sheet>}
-    {notice&&!modal&&<div className="toast" role="status" aria-live="polite">{rewards.length>0&&<div className="reward-images">{rewards.map(id=><img key={id} src={asset(id)} alt={itemNames[id]}/>)}</div>}<span>{notice}</span><button onClick={()=>setNotice('')} aria-label="안내 닫기"><Icon name="close" light/></button></div>}
+    {notice&&!modal&&!(screen==='game'&&dialogue?.introScene)&&<div className="toast" role="status" aria-live="polite">{rewards.length>0&&<div className="reward-images">{rewards.map(id=><img key={id} src={asset(id)} alt={itemNames[id]}/>)}</div>}<span>{notice}</span><button onClick={()=>setNotice('')} aria-label="안내 닫기"><Icon name="close" light/></button></div>}
   </div></NoticeContext.Provider>;
 }

@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import type { ReviewState } from './App.tsx';
-import { advanceDialogue, attempt, moveTo, newGame, puzzles, readClue, validateState } from './domain/game.ts';
+import { advanceDialogue, attempt, moveTo, newGame, puzzles, readClue, validateState, skipPrologue } from './domain/game.ts';
 import type { GameState, SceneId } from './domain/game.ts';
 import './styles.css';
 import './game-skin.css';
@@ -23,7 +23,8 @@ function progress(count:number):GameState {
 }
 const place=(s:GameState,scene:SceneId,view:string)=>moveTo(s,scene,view);
 type Example={id:string;label:string;description:string;state:ReviewState};
-const broadcast=advanceDialogue(newGame());
+const broadcast=advanceDialogue(skipPrologue(newGame()));
+function introAt(scene:string){let s=newGame();while(s.dialogueQueue[0]?.introScene!==scene)s=advanceDialogue(s);return s;}
 export const examples:Example[]=[
   {id:'title',label:'타이틀',description:'햇빛과 바다, 섬의 첫인상',state:{game:newGame(),screen:'title'}},
   {id:'home',label:'게임 홈',description:'이어하기 · 기록 · 챕터 목록',state:{game:progress(15),screen:'home'}},
@@ -44,8 +45,13 @@ export const examples:Example[]=[
   {id:'settings',label:'설정',description:'소리 · 밝기 · 글자 · 움직임',state:{game:progress(15),screen:'game',modal:'menu'}},
   {id:'hint',label:'단계별 힌트',description:'방향부터 정답까지 세 단계',state:{game:progress(15),screen:'game',modal:'hint'}},
   {id:'complete',label:'챕터 완료',description:'첫 문을 연 뒤의 완료 화면',state:{game:progress(25),screen:'game'}}
+  ,{id:'intro-office',label:'인트로 · 익명의 메시지',description:'사무실에서 받은 보고서 원본 제안',state:{game:introAt('office'),screen:'game'}}
+  ,{id:'intro-port',label:'인트로 · 항구의 약속',description:'약속 장소에서 일어난 납치',state:{game:introAt('port'),screen:'game'}}
+  ,{id:'intro-boat',label:'인트로 · 끊어진 기억',description:'이동 중 단편적인 기억',state:{game:introAt('boat'),screen:'game'}}
+  ,{id:'intro-awake',label:'인트로 · 낯선 천장',description:'창고에서 깨어나 1장으로 연결',state:{game:introAt('awake'),screen:'game'}}
+  ,{id:'valve-installed',label:'설비실 · 손잡이 장착',description:'가운데 밸브 축에 맞춘 손잡이와 배수된 집수정',state:{game:place(progress(21),'R03','B'),screen:'game'}}
 ];
 const params=new URLSearchParams(location.search),focus=params.get('focus')==='1';
 const chosen=examples.find(e=>e.id===params.get('screen'))||examples[1];
 document.body.classList.toggle('review-focus',focus);
-createRoot(document.getElementById('root')!).render(focus?<App review={chosen.state}/>:<div className="review-workspace"><aside className="review-sidebar"><small>표류도 · 화면 디자인</small><h1>기억의 해안</h1><p>현대적인 2D 미스터리<br/>완성 화면 19종</p><nav>{examples.map(e=><a key={e.id} href={'?screen='+e.id} aria-current={e===chosen?'page':undefined}>{e.label}</a>)}</nav><a className="play-link" href="./">게임 실행 →</a><small className="review-warning">진행 상황은 저장되지 않습니다.<br/>퍼즐 정답이 포함된 제작용 화면입니다.</small></aside><main className="review-main"><div className="review-caption"><small>SCREEN DESIGN · {chosen.id}</small><h2>{chosen.label}</h2><p>{chosen.description}</p></div><App key={chosen.id} review={chosen.state}/></main></div>);
+createRoot(document.getElementById('root')!).render(focus?<App review={chosen.state}/>:<div className="review-workspace"><aside className="review-sidebar"><small>표류도 · 화면 디자인</small><h1>기억의 해안</h1><p>현대적인 2D 미스터리<br/>완성 화면 {examples.length}종</p><nav>{examples.map(e=><a key={e.id} href={'?screen='+e.id} aria-current={e===chosen?'page':undefined}>{e.label}</a>)}</nav><a className="play-link" href="./">게임 실행 →</a><small className="review-warning">진행 상황은 저장되지 않습니다.<br/>퍼즐 정답이 포함된 제작용 화면입니다.</small></aside><main className="review-main"><div className="review-caption"><small>SCREEN DESIGN · {chosen.id}</small><h2>{chosen.label}</h2><p>{chosen.description}</p></div><App key={chosen.id} review={chosen.state}/></main></div>);

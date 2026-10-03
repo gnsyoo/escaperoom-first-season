@@ -19,7 +19,7 @@ const modes = new Set(['inspect', 'repeat', 'use', 'code', 'combine', 'arrange',
 for (const p of pack.puzzles) {
   assert(modes.has(p.mode), `${p.id}: unknown mode`);
   assert.equal(p.hints.length, 3, `${p.id}: hints`);
-  for (const text of [...p.hints, p.clue, p.failText, p.repeatText]) assert(typeof text === 'string' && text.length > 0);
+  for (const text of [...p.hints, p.clue, p.failText, p.repeatText, p.successText]) assert(typeof text === 'string' && text.length > 0);
   for (const id of p.requiresCompleted) assert(ids.has(id) && id !== p.id, `${p.id}: invalid dependency ${id}`);
   for (const id of [...p.requiresItems, ...p.effects.consumeItems, ...p.effects.grantItems]) assert(itemIds.has(id), `${p.id}: invalid item ${id}`);
   for (const id of p.effects.consumeItems) assert(p.requiresItems.includes(id), `${p.id}: consume without item requirement`);

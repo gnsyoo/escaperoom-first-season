@@ -195,10 +195,55 @@
       "height": 2340
     },
     {
+      "id": "ch01-intro-office",
+      "label": "1장 인트로 · 익명의 메시지",
+      "chapter": "CH01",
+      "entry": "ui-preview.html?screen=intro-office",
+      "file": "20_ch01-intro-office_1080x2340.png",
+      "width": 1080,
+      "height": 2340
+    },
+    {
+      "id": "ch01-intro-port",
+      "label": "1장 인트로 · 항구의 약속",
+      "chapter": "CH01",
+      "entry": "ui-preview.html?screen=intro-port",
+      "file": "21_ch01-intro-port_1080x2340.png",
+      "width": 1080,
+      "height": 2340
+    },
+    {
+      "id": "ch01-intro-boat",
+      "label": "1장 인트로 · 끊어진 기억",
+      "chapter": "CH01",
+      "entry": "ui-preview.html?screen=intro-boat",
+      "file": "22_ch01-intro-boat_1080x2340.png",
+      "width": 1080,
+      "height": 2340
+    },
+    {
+      "id": "ch01-intro-awake",
+      "label": "1장 인트로 · 낯선 천장",
+      "chapter": "CH01",
+      "entry": "ui-preview.html?screen=intro-awake",
+      "file": "23_ch01-intro-awake_1080x2340.png",
+      "width": 1080,
+      "height": 2340
+    },
+    {
+      "id": "ch01-valve-installed",
+      "label": "1장 설비실 · 손잡이 장착",
+      "chapter": "CH01",
+      "entry": "ui-preview.html?screen=valve-installed",
+      "file": "24_ch01-valve-installed_1080x2340.png",
+      "width": 1080,
+      "height": 2340
+    },
+    {
       "id": "ch02-explore",
       "label": "2장 탐색",
       "chapter": "CH02",
-      "file": "20_ch02-explore_1080x2340.png",
+      "file": "25_ch02-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -206,7 +251,7 @@
       "id": "ch02-dialogue",
       "label": "2장 대화",
       "chapter": "CH02",
-      "file": "21_ch02-dialogue_1080x2340.png",
+      "file": "26_ch02-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -214,10 +259,10 @@
       "id": "ch02-puzzle",
       "label": "2장 확대 퍼즐",
       "chapter": "CH02",
-      "file": "22_ch02-puzzle_1080x2340.png",
+      "file": "27_ch02-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "22_ch02-puzzle_full.png",
+      "fullFile": "27_ch02-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2451
     },
@@ -225,7 +270,7 @@
       "id": "ch02-inventory",
       "label": "2장 인벤토리",
       "chapter": "CH02",
-      "file": "23_ch02-inventory_1080x2340.png",
+      "file": "28_ch02-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -233,7 +278,7 @@
       "id": "ch02-notebook",
       "label": "2장 수첩",
       "chapter": "CH02",
-      "file": "24_ch02-notebook_1080x2340.png",
+      "file": "29_ch02-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -241,7 +286,7 @@
       "id": "ch03-explore",
       "label": "3장 탐색",
       "chapter": "CH03",
-      "file": "25_ch03-explore_1080x2340.png",
+      "file": "30_ch03-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -249,7 +294,7 @@
       "id": "ch03-dialogue",
       "label": "3장 대화",
       "chapter": "CH03",
-      "file": "26_ch03-dialogue_1080x2340.png",
+      "file": "31_ch03-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -257,10 +302,10 @@
       "id": "ch03-puzzle",
       "label": "3장 확대 퍼즐",
       "chapter": "CH03",
-      "file": "27_ch03-puzzle_1080x2340.png",
+      "file": "32_ch03-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "27_ch03-puzzle_full.png",
+      "fullFile": "32_ch03-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2523
     },
@@ -268,7 +313,7 @@
       "id": "ch03-inventory",
       "label": "3장 인벤토리",
       "chapter": "CH03",
-      "file": "28_ch03-inventory_1080x2340.png",
+      "file": "33_ch03-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -276,7 +321,7 @@
       "id": "ch03-notebook",
       "label": "3장 수첩",
       "chapter": "CH03",
-      "file": "29_ch03-notebook_1080x2340.png",
+      "file": "34_ch03-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -284,7 +329,7 @@
       "id": "ch04-explore",
       "label": "4장 탐색",
       "chapter": "CH04",
-      "file": "30_ch04-explore_1080x2340.png",
+      "file": "35_ch04-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -292,7 +337,7 @@
       "id": "ch04-dialogue",
       "label": "4장 대화",
       "chapter": "CH04",
-      "file": "31_ch04-dialogue_1080x2340.png",
+      "file": "36_ch04-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -300,10 +345,10 @@
       "id": "ch04-puzzle",
       "label": "4장 확대 퍼즐",
       "chapter": "CH04",
-      "file": "32_ch04-puzzle_1080x2340.png",
+      "file": "37_ch04-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "32_ch04-puzzle_full.png",
+      "fullFile": "37_ch04-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2451
     },
@@ -311,7 +356,7 @@
       "id": "ch04-inventory",
       "label": "4장 인벤토리",
       "chapter": "CH04",
-      "file": "33_ch04-inventory_1080x2340.png",
+      "file": "38_ch04-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -319,7 +364,7 @@
       "id": "ch04-notebook",
       "label": "4장 수첩",
       "chapter": "CH04",
-      "file": "34_ch04-notebook_1080x2340.png",
+      "file": "39_ch04-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -327,7 +372,7 @@
       "id": "ch05-explore",
       "label": "5장 탐색",
       "chapter": "CH05",
-      "file": "35_ch05-explore_1080x2340.png",
+      "file": "40_ch05-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -335,7 +380,7 @@
       "id": "ch05-dialogue",
       "label": "5장 대화",
       "chapter": "CH05",
-      "file": "36_ch05-dialogue_1080x2340.png",
+      "file": "41_ch05-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -343,10 +388,10 @@
       "id": "ch05-puzzle",
       "label": "5장 확대 퍼즐",
       "chapter": "CH05",
-      "file": "37_ch05-puzzle_1080x2340.png",
+      "file": "42_ch05-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "37_ch05-puzzle_full.png",
+      "fullFile": "42_ch05-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2451
     },
@@ -354,7 +399,7 @@
       "id": "ch05-inventory",
       "label": "5장 인벤토리",
       "chapter": "CH05",
-      "file": "38_ch05-inventory_1080x2340.png",
+      "file": "43_ch05-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -362,7 +407,7 @@
       "id": "ch05-notebook",
       "label": "5장 수첩",
       "chapter": "CH05",
-      "file": "39_ch05-notebook_1080x2340.png",
+      "file": "44_ch05-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -370,7 +415,7 @@
       "id": "ch06-explore",
       "label": "6장 탐색",
       "chapter": "CH06",
-      "file": "40_ch06-explore_1080x2340.png",
+      "file": "45_ch06-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -378,7 +423,7 @@
       "id": "ch06-dialogue",
       "label": "6장 대화",
       "chapter": "CH06",
-      "file": "41_ch06-dialogue_1080x2340.png",
+      "file": "46_ch06-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -386,10 +431,10 @@
       "id": "ch06-puzzle",
       "label": "6장 확대 퍼즐",
       "chapter": "CH06",
-      "file": "42_ch06-puzzle_1080x2340.png",
+      "file": "47_ch06-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "42_ch06-puzzle_full.png",
+      "fullFile": "47_ch06-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2937
     },
@@ -397,7 +442,7 @@
       "id": "ch06-inventory",
       "label": "6장 인벤토리",
       "chapter": "CH06",
-      "file": "43_ch06-inventory_1080x2340.png",
+      "file": "48_ch06-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -405,7 +450,7 @@
       "id": "ch06-notebook",
       "label": "6장 수첩",
       "chapter": "CH06",
-      "file": "44_ch06-notebook_1080x2340.png",
+      "file": "49_ch06-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -413,7 +458,7 @@
       "id": "ch07-explore",
       "label": "7장 탐색",
       "chapter": "CH07",
-      "file": "45_ch07-explore_1080x2340.png",
+      "file": "50_ch07-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -421,7 +466,7 @@
       "id": "ch07-dialogue",
       "label": "7장 대화",
       "chapter": "CH07",
-      "file": "46_ch07-dialogue_1080x2340.png",
+      "file": "51_ch07-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -429,10 +474,10 @@
       "id": "ch07-puzzle",
       "label": "7장 확대 퍼즐",
       "chapter": "CH07",
-      "file": "47_ch07-puzzle_1080x2340.png",
+      "file": "52_ch07-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "47_ch07-puzzle_full.png",
+      "fullFile": "52_ch07-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2451
     },
@@ -440,7 +485,7 @@
       "id": "ch07-inventory",
       "label": "7장 인벤토리",
       "chapter": "CH07",
-      "file": "48_ch07-inventory_1080x2340.png",
+      "file": "53_ch07-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -448,7 +493,7 @@
       "id": "ch07-notebook",
       "label": "7장 수첩",
       "chapter": "CH07",
-      "file": "49_ch07-notebook_1080x2340.png",
+      "file": "54_ch07-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -456,7 +501,7 @@
       "id": "ch08-explore",
       "label": "8장 탐색",
       "chapter": "CH08",
-      "file": "50_ch08-explore_1080x2340.png",
+      "file": "55_ch08-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -464,7 +509,7 @@
       "id": "ch08-dialogue",
       "label": "8장 대화",
       "chapter": "CH08",
-      "file": "51_ch08-dialogue_1080x2340.png",
+      "file": "56_ch08-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -472,10 +517,10 @@
       "id": "ch08-puzzle",
       "label": "8장 확대 퍼즐",
       "chapter": "CH08",
-      "file": "52_ch08-puzzle_1080x2340.png",
+      "file": "57_ch08-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "52_ch08-puzzle_full.png",
+      "fullFile": "57_ch08-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2451
     },
@@ -483,7 +528,7 @@
       "id": "ch08-inventory",
       "label": "8장 인벤토리",
       "chapter": "CH08",
-      "file": "53_ch08-inventory_1080x2340.png",
+      "file": "58_ch08-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -491,7 +536,7 @@
       "id": "ch08-notebook",
       "label": "8장 수첩",
       "chapter": "CH08",
-      "file": "54_ch08-notebook_1080x2340.png",
+      "file": "59_ch08-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -499,7 +544,7 @@
       "id": "ch09-explore",
       "label": "9장 탐색",
       "chapter": "CH09",
-      "file": "55_ch09-explore_1080x2340.png",
+      "file": "60_ch09-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -507,7 +552,7 @@
       "id": "ch09-dialogue",
       "label": "9장 대화",
       "chapter": "CH09",
-      "file": "56_ch09-dialogue_1080x2340.png",
+      "file": "61_ch09-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -515,10 +560,10 @@
       "id": "ch09-puzzle",
       "label": "9장 확대 퍼즐",
       "chapter": "CH09",
-      "file": "57_ch09-puzzle_1080x2340.png",
+      "file": "62_ch09-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "57_ch09-puzzle_full.png",
+      "fullFile": "62_ch09-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2451
     },
@@ -526,7 +571,7 @@
       "id": "ch09-inventory",
       "label": "9장 인벤토리",
       "chapter": "CH09",
-      "file": "58_ch09-inventory_1080x2340.png",
+      "file": "63_ch09-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -534,7 +579,7 @@
       "id": "ch09-notebook",
       "label": "9장 수첩",
       "chapter": "CH09",
-      "file": "59_ch09-notebook_1080x2340.png",
+      "file": "64_ch09-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -542,7 +587,7 @@
       "id": "ch10-explore",
       "label": "10장 탐색",
       "chapter": "CH10",
-      "file": "60_ch10-explore_1080x2340.png",
+      "file": "65_ch10-explore_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -550,7 +595,7 @@
       "id": "ch10-dialogue",
       "label": "10장 대화",
       "chapter": "CH10",
-      "file": "61_ch10-dialogue_1080x2340.png",
+      "file": "66_ch10-dialogue_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -558,10 +603,10 @@
       "id": "ch10-puzzle",
       "label": "10장 확대 퍼즐",
       "chapter": "CH10",
-      "file": "62_ch10-puzzle_1080x2340.png",
+      "file": "67_ch10-puzzle_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "62_ch10-puzzle_full.png",
+      "fullFile": "67_ch10-puzzle_full.png",
       "fullWidth": 1080,
       "fullHeight": 2451
     },
@@ -569,7 +614,7 @@
       "id": "ch10-inventory",
       "label": "10장 인벤토리",
       "chapter": "CH10",
-      "file": "63_ch10-inventory_1080x2340.png",
+      "file": "68_ch10-inventory_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -577,7 +622,7 @@
       "id": "ch10-notebook",
       "label": "10장 수첩",
       "chapter": "CH10",
-      "file": "64_ch10-notebook_1080x2340.png",
+      "file": "69_ch10-notebook_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -585,10 +630,10 @@
       "id": "home",
       "label": "시즌 홈",
       "chapter": "COMMON",
-      "file": "65_home_1080x2340.png",
+      "file": "70_home_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "65_home_full.png",
+      "fullFile": "70_home_full.png",
       "fullWidth": 1080,
       "fullHeight": 4362
     },
@@ -596,10 +641,10 @@
       "id": "map",
       "label": "시즌 섬 지도",
       "chapter": "COMMON",
-      "file": "66_map_1080x2340.png",
+      "file": "71_map_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "66_map_full.png",
+      "fullFile": "71_map_full.png",
       "fullWidth": 1080,
       "fullHeight": 2367
     },
@@ -607,10 +652,10 @@
       "id": "settings",
       "label": "설정",
       "chapter": "COMMON",
-      "file": "67_settings_1080x2340.png",
+      "file": "72_settings_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "67_settings_full.png",
+      "fullFile": "72_settings_full.png",
       "fullWidth": 1080,
       "fullHeight": 2988
     },
@@ -618,10 +663,10 @@
       "id": "evidence",
       "label": "원본 자료 수첩",
       "chapter": "COMMON",
-      "file": "68_evidence_1080x2340.png",
+      "file": "73_evidence_1080x2340.png",
       "width": 1080,
       "height": 2340,
-      "fullFile": "68_evidence_full.png",
+      "fullFile": "73_evidence_full.png",
       "fullWidth": 1080,
       "fullHeight": 2928
     },
@@ -629,7 +674,7 @@
       "id": "hint",
       "label": "스피커 힌트",
       "chapter": "COMMON",
-      "file": "69_hint_1080x2340.png",
+      "file": "74_hint_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -637,7 +682,7 @@
       "id": "ending-t",
       "label": "진실의 해안",
       "chapter": "COMMON",
-      "file": "70_ending-t_1080x2340.png",
+      "file": "75_ending-t_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -645,7 +690,7 @@
       "id": "ending-n",
       "label": "남겨진 파도",
       "chapter": "COMMON",
-      "file": "71_ending-n_1080x2340.png",
+      "file": "76_ending-n_1080x2340.png",
       "width": 1080,
       "height": 2340
     },
@@ -653,7 +698,7 @@
       "id": "ending-b",
       "label": "끊어진 신호",
       "chapter": "COMMON",
-      "file": "72_ending-b_1080x2340.png",
+      "file": "77_ending-b_1080x2340.png",
       "width": 1080,
       "height": 2340
     }

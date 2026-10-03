@@ -4,8 +4,8 @@
   "toolMode": "built-in image_gen; original hand-authored SVG UI and exact clue overlays",
   "sourcePolicy": "PNG originals preserved, actual dimensions recorded; use contain, never invent source resolution",
   "counts": {
-    "plannedRaster": 131,
-    "generatedRaster": 131,
+    "plannedRaster": 134,
+    "generatedRaster": 134,
     "svg": 63
   },
   "missing": [],
@@ -3435,6 +3435,54 @@
       "sha256": "04f289f7bd902298d4f363e910d94cd7fb84f2a9092d1e4a959cd5260f55f35d",
       "colorType": 2,
       "promptRef": "map-ui-generation-log.json#CH01_WAREHOUSE_MAP_V02"
+    },
+    {
+      "id": "PROLOGUE_OFFICE_V01",
+      "path": "story/prologue/office_message_v01.png",
+      "label": "익명의 메시지",
+      "category": "story",
+      "chapter": "PROLOGUE",
+      "transparent": false,
+      "status": "ready-art",
+      "exists": true,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2108322,
+      "sha256": "7550749f2e2963d8646c871c2e86d9b7b8d10f389603c82de69ac2cc19c944f7",
+      "colorType": 2,
+      "promptRef": "prologue-generation-log.json#PROLOGUE_OFFICE_V01"
+    },
+    {
+      "id": "PROLOGUE_PORT_V01",
+      "path": "story/prologue/port_meeting_v01.png",
+      "label": "항구의 약속",
+      "category": "story",
+      "chapter": "PROLOGUE",
+      "transparent": false,
+      "status": "ready-art",
+      "exists": true,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2338756,
+      "sha256": "f97ba9f24e32b780b657ec1da17e83634dc44f78d81cdebbe25fd13592b478ce",
+      "colorType": 2,
+      "promptRef": "prologue-generation-log.json#PROLOGUE_PORT_V01"
+    },
+    {
+      "id": "PROLOGUE_BOAT_V01",
+      "path": "story/prologue/boat_memory_v01.png",
+      "label": "끊어진 기억",
+      "category": "story",
+      "chapter": "PROLOGUE",
+      "transparent": false,
+      "status": "ready-art",
+      "exists": true,
+      "width": 1024,
+      "height": 1536,
+      "bytes": 2135045,
+      "sha256": "8f18fa5095d8a470746ae0d0c371bd1e0f19e4c472640c2430a1dda08e2d65db",
+      "colorType": 2,
+      "promptRef": "prologue-generation-log.json#PROLOGUE_BOAT_V01"
     }
   ]
 }

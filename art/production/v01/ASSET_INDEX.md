@@ -1,6 +1,6 @@
 # 표류도 그래픽 리소스 목록
 
-PNG 131장, SVG 63개. 모든 한글 기능 라벨은 실제 Pretendard UI 레이어다.
+PNG 134장, SVG 63개. 한글 기능 라벨은 실제 Pretendard UI 레이어다.
 
 | ID | 용도 | 파일 | 원본 크기 |
 | --- | --- | --- | --- |
@@ -198,3 +198,6 @@ PNG 131장, SVG 63개. 모든 한글 기능 라벨은 실제 Pretendard UI 레�
 | UI_INSPECT_V02 | 조사 | [파일](ui/painted/inspect_v02.png) | 1254×1254 |
 | UI_MENU_V02 | 메뉴 | [파일](ui/painted/menu_v02.png) | 1254×1254 |
 | CH01_WAREHOUSE_MAP_V02 | 창고 조감 지도 | [파일](map/ch01_warehouse_map_v02.png) | 1024×1536 |
+| PROLOGUE_OFFICE_V01 | 익명의 메시지 | [파일](story/prologue/office_message_v01.png) | 1024×1536 |
+| PROLOGUE_PORT_V01 | 항구의 약속 | [파일](story/prologue/port_meeting_v01.png) | 1024×1536 |
+| PROLOGUE_BOAT_V01 | 끊어진 기억 | [파일](story/prologue/boat_memory_v01.png) | 1024×1536 |

@@ -543,17 +543,17 @@
       "scene": "R03_B",
       "assetId": "valve_handle",
       "rect": {
-        "x": 0.505,
-        "y": 0.298,
-        "w": 0.1,
-        "h": 0.1
+        "x": 0.455,
+        "y": 0.294,
+        "w": 0.13,
+        "h": 0.108333
       },
       "visibleWhen": {
         "completedAll": [
           "P21"
         ]
       },
-      "note": "Installed center shaft; use contentRect alignment from manifest."
+      "note": "Wheel hub aligned to the center pipe shaft at normalized (0.519, 0.350); square raster occupies a square in the 5:6 scene. Shared full-frame state geometry."
     },
     {
       "scene": "R03_B",

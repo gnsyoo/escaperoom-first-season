@@ -1,8 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { advanceDialogue, attempt, canVisit, moveTo, newGame, puzzles, validateState } from '../../src/domain/game.ts';
+import { advanceDialogue, attempt, canVisit, moveTo, newGame, puzzles, validateState, skipPrologue, prologue } from '../../src/domain/game.ts';
 import type { GameState, SceneId } from '../../src/domain/game.ts';
 const drain=(s:GameState)=>{while(s.dialogueQueue.length)s=advanceDialogue(s);return s;};
+test('prologue resumes exact lines, skips to awakening and accepts existing saves',()=>{
+ let s=newGame();assert.equal(s.dialogueQueue[0].introScene,'office');
+ for(const d of prologue.dialogues){assert.equal(s.dialogueQueue[0].id,d.id);assert.deepEqual(validateState(s),s);s=advanceDialogue(s);}
+ assert.equal(s.dialogueQueue[0].id,'D01_001');assert.equal(s.completedPuzzleIds.length,0);
+ const skipped=skipPrologue(newGame());assert.deepEqual(skipped.dialogueQueue,s.dialogueQueue);assert.equal(skipped.seenDialogueIds.length,13);assert.deepEqual(validateState(skipped),skipped);
+ const old={...skipped,seenDialogueIds:[]};assert.deepEqual(validateState(old),old);
+ assert.throws(()=>validateState({...newGame(),dialogueQueue:newGame().dialogueQueue.map((d,i)=>i?d:{...d,introScene:'invented'})}));
+});
+test('first completion reports success while repeated investigation keeps its own wording',()=>{
+ let s=drain(newGame());
+ for(const p of puzzles){if(p.location.sceneId!=='ANY')s=moveTo(s,p.location.sceneId as SceneId,p.location.viewId);const first=attempt(s,p.id,p.expectedAnswer);assert.equal(first.status,'success');assert.equal(first.message,p.successText);assert(!first.message.includes('이미'),p.id);s=drain(first.state);if(p.location.sceneId!=='ANY')s=moveTo(s,p.location.sceneId as SceneId,p.location.viewId);const again=attempt(s,p.id,p.expectedAnswer);assert.equal(again.status,'repeat',p.id);assert.equal(again.message,p.repeatText);assert.deepEqual(again.rewards,[]);}
+});
 function solve(s:GameState,id:string,answer?:unknown){const p=puzzles.find(p=>p.id===id)!;if(p.location.sceneId!=='ANY')s=moveTo(s,p.location.sceneId as SceneId,p.location.viewId);const r=attempt(s,id,answer??p.expectedAnswer);assert.equal(r.status,'success',id+': '+r.message);return drain(r.state);}
 function prefix(n:number){let s=drain(newGame());for(const p of puzzles.slice(0,n))s=solve(s,p.id);return s;}
 test('all 25 stages complete with coherent items, evidence, transitions and save replay',()=>{
