@@ -61,6 +61,7 @@ const readme=`# 표류도 기억의 해안
 - [스토리 UI UX 개선 및 검증 범위](docs/09_STORY_UX_QUALITY.md)
 - [그래픽 지도·소품 메뉴·배경 표시 기준](docs/10_GRAPHICAL_MAP_MENU.md)
 - [인트로·최초 습득 메시지·밸브 장착 기준](docs/11_PROLOGUE_FEEDBACK_VALVE.md)
+- [전 챕터 공통 탐색 조작](docs/12_SHARED_EXPLORATION_UI.md)
 - [현재 UI 완성 이미지 갤러리](art/ui-screens/season-v02/gallery.html)
 - [원본 그래픽 갤러리](art/production/v01/gallery.html)
 - [신규 9장 장치 이미지](art/production/v01/SEASON_ART_README.md)
@@ -99,6 +100,8 @@ node tests/e2e/season-feedback-and-return.mjs
 node tests/e2e/legacy-feedback.mjs
 node tests/e2e/graphical-map-and-scene.mjs
 node tests/e2e/prologue-and-feedback.mjs
+node tests/e2e/consistent-exploration.mjs
+node tests/e2e/header-frame.mjs
 ~~~
 
 로컬 Chrome/Edge 또는 Playwright Chromium을 사용한다. PYORYUDO_BROWSER로 실행 파일 경로를 지정할 수 있다. 검사 파일을 실행할 때 개발 서버가 먼저 실행돼 있어야 한다. 원본 리소스와 최신 UI의 상태, 검증의 한계는 품질 문서에 기록한다.

@@ -14,7 +14,7 @@ try{
   for(const p of c.stages){
    await page.locator('.season-route').getByRole('button',{name:c.views[p.view],exact:true}).click();
    if(p.kind==='tide'){for(let i=0;i<12;i++){if((await page.locator('.season-context').innerText()).includes('썰물 · 4칸'))break;await page.getByRole('button',{name:'기다리기',exact:true}).click();}}
-   await page.locator('.season-action-strip button').filter({hasText:p.title}).first().click();
+   await page.getByRole('button',{name:'조사 목록',exact:true}).click();await page.locator('.season-action-strip button').filter({hasText:p.title}).first().click();
    const dialog=page.getByRole('dialog');
    if(p.kind==='controls'){
     await dialog.locator('.mechanism-direct summary').click();

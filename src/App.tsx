@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { advanceDialogue, allDialogues, attempt, availablePuzzles, puzzles, canVisit, has, itemNames, moveTo, newGame, objective, owns, readClue, views, skipPrologue } from './domain/game.ts';
 import type { GameState, SceneId } from './domain/game.ts';
-import { asset, descriptions, evidence, hotspotNames, icon, layers, roomNames, sceneAsset, scenes, viewNames, paintedIcons } from './content/art.ts';
+import { asset, descriptions, evidence, hotspotNames, layers, roomNames, sceneAsset, scenes, viewNames } from './content/art.ts';
 import { getSlot, listSlots, saveSlot } from './platform/save.ts';
 import type { SaveSlot } from './platform/save.ts';
 import VectorArt from './content/VectorArt.tsx';
@@ -10,6 +10,9 @@ import GraphicalMap from './GraphicalMap.tsx';
 import useSceneFrame from './useSceneFrame.ts';
 import { season } from './domain/season.ts';
 import Prologue from './Prologue.tsx';
+import ExplorationBar from './ExplorationBar.tsx';
+import {Icon} from './GameIcon.tsx';
+export {Icon} from './GameIcon.tsx';
 
 type Context = { hotspot:string; assetId?:string; puzzleId?:string };
 type Modal = 'inventory'|'notebook'|'map'|'hint'|'menu'|'puzzle'|null;
@@ -33,7 +36,6 @@ function tone(volume:number,success=false){
     oscillator.connect(gain);gain.connect(audio.destination);oscillator.start();oscillator.stop(audio.currentTime+.14);
   }catch{/* A browser may disallow audio; gameplay remains usable. */}
 }
-export function Icon({name,light=false}:{name:string;light?:boolean}){return <img className={'icon '+(paintedIcons[name]?'painted-icon':light?'':'ink-icon')} src={paintedIcons[name]?asset(paintedIcons[name]):icon(name)} alt="" aria-hidden="true"/>;}
 const NoticeContext=createContext('');
 function Sheet({title,subtitle,close,children}:{title:string;subtitle?:string;close:()=>void;children:ReactNode}){
   const notice=useContext(NoticeContext);
@@ -339,7 +341,7 @@ export default function App({review,onChapterComplete,startFresh=false}:{review?
     </section>:dialogue?.introScene?<Prologue dialogue={dialogue} text={visibleText} brightness={prefs.brightness} notice={notice} onNext={nextDialogue} onSkip={()=>{commit(skipPrologue(stateRef.current));setNotice('');ping();}} onMenu={()=>{setMenuTab('settings');openModal('menu');}}/>:<>
       <header className="game-header"><div className="chapter-label"><span>01</span><div><small>표류도 · 기억의 해안</small><strong>폐창고 감금실</strong></div></div><div className="header-actions"><button className="icon-button light" onClick={()=>{setNotebookTab('dialogue');openModal('notebook');}} aria-label="대화 기록"><Icon name="document" light/></button><button className="icon-button light" onClick={()=>{setMenuTab('settings');openModal('menu');}} aria-label="메뉴"><Icon name="menu" light/></button></div></header>
       <div className="objective"><Icon name="inspect"/><span>{objective(game)}</span><small>{Math.round(game.completedPuzzleIds.length/25*100)}%</small></div>
-      <div className="scene-bar"><div><b>{roomNames[game.sceneId]}</b><span>{viewNames[currentKey]}</span></div><div className="scene-tools"><button className="scene-fit-button" aria-label={fullScene?'화면 채우기':'전체 장면 보기'} aria-pressed={fullScene} onClick={()=>setFullScene(!fullScene)}><Icon name="inspect"/>{fullScene?'화면 채우기':'전체 장면'}</button><button className={'marker-button '+(markers?'active':'')} onClick={()=>{setMarkers(!markers);ping();}} aria-label="조사 표시" aria-pressed={markers}><Icon name="eye"/></button></div></div>
+      <ExplorationBar place={roomNames[game.sceneId]} view={viewNames[currentKey]} fullScene={fullScene} markers={markers} onFit={()=>setFullScene(!fullScene)} onMarkers={()=>{setMarkers(!markers);ping();}}/>
       <main ref={sceneRef} className="scene-window" data-fit={fullScene?'whole':'fill'} aria-label={viewNames[currentKey]}>
         <div className={'scene-image-space '+(markers?'show-markers':'')} style={{width:sceneSize.width,height:sceneSize.height,filter:'brightness('+prefs.brightness/100+')'}}>
           <img key={sceneAsset(game)} className="scene-base" src={sceneAsset(game)} alt={viewNames[currentKey]} onError={()=>setImageError(true)}/>

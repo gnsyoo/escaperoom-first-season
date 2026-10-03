@@ -2,7 +2,7 @@
 
 웹에서 먼저 실행하고 모바일 앱으로 확장하는 미스터리 방탈출 게임의 제작 기준이다. 검은방 3의 전반적인 분위기만 참고하며 그래픽은 현대적인 고해상도 2D로 제작한다. 세계관과 인물, 10챕터 205단계, 그래픽과 UI, React 및 TypeScript 기술 구조, 개발 작업 및 검증 결과, 인트로와 두 퍼즐 JSON 원본을 포함한다. 작성 기준일은 2026년 10월 4일이다.
 
-현재 1장부터 10장과 세 엔딩, 대화·인벤토리·수첩·지도·설정·저장을 구현했다. 최신 기준은 08_SEASON_CH02_CH10.md, 09_STORY_UX_QUALITY.md, 10_GRAPHICAL_MAP_MENU.md, 11_PROLOGUE_FEEDBACK_VALVE.md이며 01~07의 초기 계획 및 제작 이력보다 우선한다. 기존 구현을 읽고 후속 개발을 이어간다. 사용자 최신 지시와 원본 JSON이 우선이며 이 통합본은 읽기용 사본이다. 수정은 개별 문서와 data/prologue.json, data/ch01.puzzles.json, data/season.chapters.json에 적용하고 node scripts/build-spec.mjs로 다시 생성한다.
+현재 1장부터 10장과 세 엔딩, 대화·인벤토리·수첩·지도·설정·저장을 구현했다. 최신 기준은 08_SEASON_CH02_CH10.md, 09_STORY_UX_QUALITY.md, 10_GRAPHICAL_MAP_MENU.md, 11_PROLOGUE_FEEDBACK_VALVE.md, 12_SHARED_EXPLORATION_UI.md이며 01~07의 초기 계획 및 제작 이력보다 우선한다. 기존 구현을 읽고 후속 개발을 이어간다. 사용자 최신 지시와 원본 JSON이 우선이며 이 통합본은 읽기용 사본이다. 수정은 개별 문서와 data/prologue.json, data/ch01.puzzles.json, data/season.chapters.json에 적용하고 node scripts/build-spec.mjs로 다시 생성한다.
 
 ## 원문 파일
 
@@ -17,6 +17,7 @@
 - [09_STORY_UX_QUALITY.md](09_STORY_UX_QUALITY.md)
 - [10_GRAPHICAL_MAP_MENU.md](10_GRAPHICAL_MAP_MENU.md)
 - [11_PROLOGUE_FEEDBACK_VALVE.md](11_PROLOGUE_FEEDBACK_VALVE.md)
+- [12_SHARED_EXPLORATION_UI.md](12_SHARED_EXPLORATION_UI.md)
 - [chapters/CH02_STORY_PUZZLES_UI.md](chapters/CH02_STORY_PUZZLES_UI.md)
 - [chapters/CH03_STORY_PUZZLES_UI.md](chapters/CH03_STORY_PUZZLES_UI.md)
 - [chapters/CH04_STORY_PUZZLES_UI.md](chapters/CH04_STORY_PUZZLES_UI.md)
@@ -1163,6 +1164,34 @@ R03_B의 장착 손잡이 레이어는 P21 완료 시만 나타난다. 실제 �
 12개 단위 검사에 인트로 13대사 저장 복원·건너뛰기·기존 저장 수용과 25단계 최초 성공/재조사를 추가했다. `tests/e2e/prologue-and-feedback.mjs`는 320×568, 360×780, 390×844, 1280×900에서 네 인트로 장면의 글꼴·버튼 크기·가시성, 손잡이 허브 위치와 완료된 밸브 상태를 확인한다. 실제 시작·새로고침·건너뛰기·첫 아이템 문구도 확인한다. 1장 25단계 전체 진행과 챕터 2 전환을 다시 통과했다.
 
 인트로 네 장면과 손잡이 장착 화면은 `ui-preview.html?screen=intro-office&focus=1`, `intro-port`, `intro-boat`, `intro-awake`, `valve-installed`로 제공한다. 최신 UI 납품은 기본 77장과 전체 스크롤 18장, 총 95장의 [PNG 갤러리](../art/ui-screens/season-v02/gallery.html)다. 원본 그래픽은 PNG 134장이다. 실제 Android·iOS 기기 검수와 음성 연기는 현재 확인 범위에 포함되지 않는다.
+
+## 전 챕터 공통 탐색 조작
+
+2026년 10월 4일 사용자가 요청한 ‘후속 챕터도 1장처럼 조작’하는 기준이다. [공통 탐색 바](../src/ExplorationBar.tsx), [1장](../src/App.tsx), [2~10장](../src/SeasonApp.tsx), [그래픽 UI 스타일](../src/graphical-ui.css)이 구현 원본이다.
+
+### 상단 조작 위치
+
+모든 탐색 화면은 게임 상단바 → 현재 목표 → 장소와 시점·탐색 버튼 → 배경 장면 순서다. 장소와 시점은 왼쪽, 전체 장면 보기와 조사 표시 돋보기는 오른쪽에 있다. `ExplorationBar`를 두 실행 화면에서 공유하므로 버튼 순서, 아이콘, 크기와 위치가 같다. 전체 장면 보기 버튼은 전환 후 화면 채우기로 표시된다. 두 버튼의 접근성 이름은 각각 ‘전체 장면 보기/화면 채우기’, ‘조사 표시’이며 `aria-pressed`로 상태를 알린다.
+
+저장 상태는 1장과 같이 하단 메뉴 아래에 표시한다. 조수 확인과 기다리기는 후속 챕터 하단에 유지하며, 조사 표시 버튼은 상단 한 곳에 둔다.
+
+### 표시와 클릭 기능 분리
+
+기존 후속 챕터는 `markers`가 참일 때만 클릭 버튼을 생성해 조사 표시를 끄면 배경을 조사할 수 없었다. 이제 준비된 단계의 클릭 대상은 항상 렌더링하고, `markers`는 조준점 그림의 표시 여부만 바꾼다. 기본은 1장처럼 표시 꺼짐이다. 배경의 사물을 누르면 표시가 꺼진 상태에서도 확대 조사·아이템 습득·장치 퍼즐을 열 수 있다. 표시를 켜도 클릭 대상 수와 진행 조건은 변하지 않는다.
+
+핫스폿은 `Stage.rect`의 중심 x/y와 w/h를 0~1 좌표로 해석하며, 배경과 같은 레이어 변환을 따른다. 터치 영역은 최소 44×44 CSS px다. 활성 단계만 나타나므로 아직 읽지 않은 대화를 건너뛰거나 선행 조건을 우회하지 않는다. 완료된 기록은 수첩에서 다시 읽는다.
+
+`season-target hotspot` 버튼의 바탕·테두리·그림자는 투명하고, `target-reticle`을 배경 위에 합성한다. `show-markers`, 마우스 올림, 키보드 포커스는 조사 지점을 읽을 수 있게 한다. 배경을 화면에 채워 가장자리가 잘린 경우 전체 장면 보기로 전환하거나 조사 목록을 이용한다.
+
+### 조사 목록
+
+하단 ‘조사 목록’은 표시 돋보기와 독립적으로 열고 닫는다. 기본은 접힌 상태다. 목록에는 현재 시점의 활성 단계가 나오며, 항목을 누르면 배경 클릭과 동일한 `openStage`로 연결된다. 단계나 다른 시점을 열면 목록을 닫는다. 원본 자료 회수 시 완료 화면의 ‘남은 선택 원본 조사하기’를 선택하고 조사 목록 또는 배경에서 접근한다. 위험 시간과 진행·소모품·증거 규칙은 기존 시즌 규칙을 따른다.
+
+### 확인과 이미지 납품
+
+`tests/e2e/consistent-exploration.mjs`는 320×568, 360×780, 390×844, 1280×900에서 2~10장 총 36개 조합을 확인한다. 실제 1장과 상단 버튼 이름·높이를 비교하고, 표시 꺼짐/켜짐/다시 꺼짐에 클릭 대상 수가 유지되는지 확인한다. 표시를 끈 상태에서 배경을 눌러 퍼즐을 열고, 조사 목록으로도 같은 퍼즐을 여는 것을 검사한다.
+
+변경한 목록 조작으로 후속 180단계를 완주해 진실 엔딩에 도달했다. 별도 시즌 레이아웃 36개, 지도·전체 장면 전환 8개, 완료 장소의 선택 원본 재회수도 다시 확인했다. 현재 실제 실행 화면의 PNG 95장은 [완성 UI 갤러리](../art/ui-screens/season-v02/gallery.html)에 갱신했다. GitHub Pages에 동일한 소스를 배포한다.
 
 ## 2장 수면 아래
 
