@@ -1,0 +1,114 @@
+{
+  "version": "season-v1",
+  "toolMode": "built-in image_gen",
+  "assets": [
+    {
+      "id": "CH02_PUMP_CLOSE",
+      "chapter": "CH02",
+      "path": "puzzles/ch02/ch02_pump_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Create a finished square 2D game close-up asset for the original Korean mystery escape game Pyo-ryu Island, chapter 2 aquaculture pump station. Reference image 1 is ONLY the approved material, daylight, palette and painting style; create a NEW close-up composition, do not edit that warehouse. Front three-quarter close view of a compact dusty blue steel pump control assembly: two substantial shutoff wheels and one bypass lever, a tall brass-trimmed water gauge with blank tick marks, a stop/start rotary switch and a small open maintenance compartment holding a clean relay socket. Dry concrete and pale sage wall behind it, soft warm daylight from a side window, realistic fine chipped paint and brushed steel, modest aging, clean dry surfaces, readable medium shadows, premium modern semi-realistic 2D painted game art. All five controls fully visible with generous spacing, mechanism fills central 80% of frame, no human, no UI, no lettering or digits, no company logo, no mold, no stagnant water, no horror darkness. Exact control labels, values and interactive buttons will be rendered separately in Pretendard by the game. Opaque square image, detailed complete asset rather than a sketch.",
+      "category": "puzzle",
+      "label": "02장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-9b0b5105-4e40-4e0c-8fe5-d7f528df8890.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH03_MIRROR_CLOSE",
+      "chapter": "CH03",
+      "path": "puzzles/ch03/ch03_mirror_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. An illuminated dry coastal cave reflector mechanism, three separate brass-ringed circular mirrors on precise hinged mounts, a beam entering from a sunlit crack at left and a blank shield target at right. Clear 3/4 frontal close-up with all three mirrors and their pivot knobs fully visible, restrained turquoise sea-light, warm limestone, no flooding. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "03장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-7c457ff2-b532-4a3b-ad91-01be004e6afd.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH04_LENS_CLOSE",
+      "chapter": "CH04",
+      "path": "puzzles/ch04/ch04_lens_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. Close-up of an antique lighthouse Fresnel lens turning mechanism, large clear concentric glass rings in pale brass frame, an olive hand-crank socket and three compact orientation controls, softly sunlit coastal sky behind glass. No lettering; keep glints restrained and metal mildly worn. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "04장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-d32be016-f84b-4dfc-ac45-0ffd4641034d.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH05_ARCHIVE_CLOSE",
+      "chapter": "CH05",
+      "path": "puzzles/ch05/ch05_archive_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. Top-down three-quarter close view of a dry old island school record desk, cream attendance ledger with blank cells, a blank seating-plan sheet, old photo album with a small monochrome image of generic adults at a school entrance, a brass three-dial filing box. Soft late-afternoon light, sage painted wood. No legible writing or faces large enough to identify; actual evidence text is a separate game layer. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "05장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-7a98599f-2601-46bd-9eea-2d4cc455b010.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH06_TRAP_CLOSE",
+      "chapter": "CH06",
+      "path": "puzzles/ch06/ch06_trap_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. Large clear close-up of a non-gory safety-release cable trap fixed to a wooden post along a sunny wooded island path, a steel spring linkage, a vacant safety-pin socket, a secondary anchor clamp and a cable release lever, all distinct and fully visible. Dry bark, leaves, beige rope and softly scuffed steel, no human or injured animal. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "06장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-202f8af1-b5e1-4af0-8511-d8e0052f4c58.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH07_RADIO_CLOSE",
+      "chapter": "CH07",
+      "path": "puzzles/ch07/ch07_radio_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. Front three-quarter close-up of a dusty blue field radio console on a pale old military outpost desk, three prominent tuning knobs, a large blank amber frequency display, a coiled microphone cable, an open contact socket and an adjacent blank paper code grid. Warm desk lamp and daylight, moderately used rather than rusty. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "07장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-09b74689-1b98-474d-8a2a-26c3f27d9893.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH08_MONITOR_CLOSE",
+      "chapter": "CH08",
+      "path": "puzzles/ch08/ch08_monitor_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. Front close-up of a surveillance desk with two small old LCD monitors side by side, showing separate muted CCTV views of an empty flood-gate corridor and a lit school evacuation doorway, blank timestamp strips below each screen, a USB drive port and two timeline slider grooves. Dry tidy desk, sage hardware, warm lamps, cool evening window, no person, no legible text. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "08장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-7530fb8d-c0d2-4030-8401-cc6b5f7ec9ae.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH09_GENERATOR_CLOSE",
+      "chapter": "CH09",
+      "path": "puzzles/ch09/ch09_generator_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. Detailed close-up of the blue-grey generator control panel at night, three readable large blank-faced gauges, four separate black and brass controls, an open fuse socket, fuel primer and start switch, warm emergency lamp, blue storm light beyond a small window. Dry interior, good midtone visibility, mechanical realism, no lettering or digits. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "09장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-d6fca57f-46c4-4177-a55d-239ab7e07766.png",
+      "toolMode": "built-in image_gen"
+    },
+    {
+      "id": "CH10_BOAT_CLOSE",
+      "chapter": "CH10",
+      "path": "puzzles/ch10/ch10_boat_close_v01.png",
+      "prompt": "Use-case: stylized-concept. Finished square 2D close-up puzzle asset for the original Korean escape mystery Pyo-ryu Island. Reference 1 is only the approved painting style, soft daylight and material wear, not an edit target. Create a NEW composition. Premium modern semi-realistic 2D painted game artwork, crisp geometry and detailed materials, moderate aging, readable midtones. Premium detailed close-up of an open small escape boat engine bay at dawn on a coastal pier, a visible fuel line with a loose hose coupling, a contact block with a lightly oxidized brass terminal, a key ignition cylinder, a clean maintenance diagram sheet without writing. Pale ivory fiberglass, dusty blue engine, gold sunrise reflections. Dry work surfaces, all repair parts fully visible, no person. Square opaque image. Fill central 80% with the mechanism; generous spacing between meaningful controls. No UI, no text, no logos, no heavy mold or corrosion, no horror darkness. Exact Pretendard labels and controls will be overlaid by the game.",
+      "category": "puzzle",
+      "label": "10장 장치 확대",
+      "transparent": false,
+      "status": "ready-art",
+      "source": "C:\\Users\\gnsyo\\.codex\\generated_images\\01a100b4-82ff-7b90-90b3-816221f9a27d\\exec-28286a7d-c494-4d0d-abad-32c7952e9fa5.png",
+      "toolMode": "built-in image_gen"
+    }
+  ]
+}

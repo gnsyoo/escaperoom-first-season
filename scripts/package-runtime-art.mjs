@@ -1,0 +1,17 @@
+import {cpSync,mkdirSync,existsSync,readFileSync,writeFileSync,statSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
+import sharp from 'sharp';
+const root=resolve('art/production/v01'),dest=resolve('dist/art');
+if(!existsSync('dist/index.html'))throw new Error('Build the web app first.');
+mkdirSync(dest,{recursive:true});
+for(const folder of ['ui','overlays','fonts'])cpSync(resolve(root,folder),resolve(dest,folder),{recursive:true});
+const manifest=JSON.parse(readFileSync(resolve(root,'manifest.json'),'utf8'));
+let sourceBytes=0,webBytes=0;
+const rasters=manifest.assets.filter(a=>a.path.endsWith('.png'));
+for(let i=0;i<rasters.length;i+=4)await Promise.all(rasters.slice(i,i+4).map(async a=>{const input=resolve(root,a.path),output=resolve(dest,a.path.replace(/\.png$/,'.webp'));mkdirSync(dirname(output),{recursive:true});await sharp(input).webp({quality:92,alphaQuality:100,effort:5}).toFile(output);sourceBytes+=statSync(input).size;webBytes+=statSync(output).size;}));
+let gallery=readFileSync(resolve(root,'gallery.html'),'utf8').replaceAll('.png','.webp').replaceAll('원본 파일 열기','웹 이미지 열기').replaceAll('원본을 확인','웹 이미지를 확인').replaceAll('PNG 원본과 SVG','웹 이미지와 SVG');
+writeFileSync(resolve(dest,'gallery.html'),gallery);
+for(const version of ['v02','season-v02'])if(existsSync('art/ui-screens/'+version+'/gallery.html'))cpSync(resolve('art/ui-screens/'+version),resolve(dest,'ui-screens/'+version),{recursive:true});
+writeFileSync('dist/build-art-stats.json',JSON.stringify({images:rasters.length,sourceBytes,webBytes,reductionPercent:Math.round((1-webBytes/sourceBytes)*100),originalPolicy:'Original PNGs remain in art/production/v01; runtime uses high quality WebP'},null,2));
+writeFileSync('dist/.nojekyll','');
+console.log('Runtime art packaged: '+rasters.length+' WebP, '+Math.round(webBytes/1024/1024)+' MB; original PNGs preserved.');

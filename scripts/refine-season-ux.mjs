@@ -1,0 +1,14 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+let app=readFileSync('src/SeasonApp.tsx','utf8');
+app=app.replace("const [screen,setScreen]", "const [showCompletion,setShowCompletion]=useState(true);\n const [screen,setScreen]");
+app=app.replace("function commit(n:SeasonState)","useEffect(()=>setShowCompletion(true),[s.chapter]);\n function commit(n:SeasonState)");
+app=app.replace("!dialogue&&!complete(s)&&!s.ending&&markers", "!dialogue&&(!complete(s)||!showCompletion)&&!s.ending&&markers");
+app=app.replace("{complete(s)&&!s.ending&&!dialogue&&", "{complete(s)&&showCompletion&&!s.ending&&!dialogue&&");
+app=app.replace('<p>{c.summary}</p>{s.chapter===6', '<p>{c.summary}</p>{active.some(q=>q.optional)&&<button className="secondary full" onClick={()=>setShowCompletion(false)}>남은 선택 원본 조사하기</button>}{s.chapter<s.furthest&&<button className="primary full" onClick={()=>commit(visit(s,s.furthest))}>현재 여정으로 복귀</button>}{s.chapter===6');
+app=app.replace("!dialogue&&!s.ending&&!complete(s)&&<div className=\"season-action-strip\">", "!dialogue&&!s.ending&&(!complete(s)||!showCompletion)&&<div className=\"season-action-strip\">{complete(s)&&<button className=\"secondary\" onClick={()=>setShowCompletion(true)}>탐색 완료 · 여정 계속</button>}");
+app=app.replace("commit({...s,queue:s.queue.slice(1)})", "commit({...s,queue:s.queue.slice(1),history:[...s.history.filter(d=>d.id!==dialogue.id),dialogue]})");
+app=app.replace("['timeline','시간 정리']", "['timeline','시간 정리'],['dialogue','대화']");
+app=app.replace("{notebookTab==='timeline'&&", "{notebookTab==='dialogue'&&<>{s.history.length?s.history.slice().reverse().map(d=><article className=\"season-note\" key={d.id}><h3>{d.speaker}</h3><p>{d.text}</p></article>):<p>읽은 대화가 이곳에 남습니다.</p>}</>}{notebookTab==='timeline'&&");
+writeFileSync('src/SeasonApp.tsx',app);
+let p=readFileSync('src/season-preview.tsx','utf8').replace('s.done.push(p.id);','s.done.push(p.id);s.history.push(...p.dialogue);');writeFileSync('src/season-preview.tsx',p);
+console.log('Optional evidence return route and dialogue notebook improved.');
